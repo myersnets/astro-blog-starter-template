@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mountain Muscle | Oakhurst, CA</title>
+  <meta name="description" content="Mountain Muscle is an old-school gym in Oakhurst, CA. Disciplined bodies, disciplined minds.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Mountain Muscle</h1>
+      <p class="tagline">Disciplined bodies, disciplined minds.</p>
+      <a href="#contact" class="cta">Visit the Gym</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container">
+      <h2>Old School. No Excuses.</h2>
+      <p>
+        Mountain Muscle is a no-frills, old-iron gym built for people who come to work.
+        No corporate fluff. No gimmicks. Just disciplined training in the heart of Oakhurst.
+      </p>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section dark">
+    <div class="container features">
+      <div class="feature">
+        <h3>Serious Training</h3>
+        <p>Free weights, machines, and space to train the right way.</p>
+      </div>
+      <div class="feature">
+        <h3>Community Driven</h3>
+        <p>A gym where people know your name and respect the work.</p>
+      </div>
+      <div class="feature">
+        <h3>Future 24/7 Access</h3>
+        <p>Growing toward secure, round-the-clock access.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="section">
+    <div class="container">
+      <h2>Find Us</h2>
+      <p>40118 Enterprise Dr.<br>Oakhurst, CA 93644</p>
+
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps?q=40118+Enterprise+Dr,+Oakhurst,+CA+93644&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section dark" id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>
+        Phone: <a href="tel:15596417255">(559) 641-7255</a>
+      </p>
+
+      <div class="socials">
+        <a href="https://www.facebook.com/MountainMuscleOakhurst" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/mountainmuscleoakhurst" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© <span id="year"></span> Mountain Muscle · Oakhurst, CA</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

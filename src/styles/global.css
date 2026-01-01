@@ -21,15 +21,16 @@ body {
 }
 
 .logo {
-  max-width: 220px;
+  max-width: 200px;
   width: 100%;
   height: auto;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem;
+  display: block;
 }
 
 .hero h1 {
   font-size: 2.2rem;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -42,21 +43,27 @@ body {
 /* Content */
 .content {
   padding: 2rem 1rem;
-  max-width: 700px;
+  max-width: 720px;
   margin: 0 auto;
+  text-align: center;
 }
 
 section {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 h2 {
   font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
 }
 
+p {
+  margin-bottom: 0.75rem;
+}
+
+/* Links */
 a {
   color: #ffffff;
   text-decoration: none;
@@ -67,24 +74,29 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Map button */
-.map-link {
-  display: inline-block;
-  margin-top: 0.75rem;
-  padding: 0.6rem 1.2rem;
-  border: 1px solid #ffffff;
-}
-
 /* Socials */
 .socials {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Google Map */
+.map-embed {
+  margin-top: 1rem;
+  border: 1px solid #333;
+}
+
+.map-embed iframe {
+  width: 100%;
+  height: 300px;
+  border: 0;
 }
 
 /* Footer */
 footer {
-  padding: 1.5rem;
+  padding: 1.5rem 1rem;
   font-size: 0.85rem;
   color: #999;
 }

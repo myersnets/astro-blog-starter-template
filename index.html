@@ -2,112 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mountain Muscle | Oakhurst, CA</title>
 
-  <title>Mountain Muscle | Oakhurst CA Gym</title>
-  <meta name="description" content="Mountain Muscle is an old-school gym in Oakhurst, CA. Disciplined bodies, disciplined minds." />
+  <link rel="stylesheet" href="/styles/global.css" />
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
-
-  <!-- Global Styles -->
-  <link rel="stylesheet" href="styles/global.css">
+  <meta name="description" content="Mountain Muscle is an old-school iron gym in Oakhurst, CA. Disciplined bodies, disciplined minds." />
 </head>
+
 <body>
-
-  <!-- HEADER / HERO -->
   <header class="hero">
-    <nav class="nav">
-      <img
-        src="assets/mountain-muscle-logo.png"
-        alt="Mountain Muscle gym logo"
-        class="logo"
-      />
-    </nav>
-
-    <div class="overlay"></div>
-
-    <div class="hero-content">
-      <h1>Mountain Muscle</h1>
-      <p class="tagline">Disciplined bodies, disciplined minds.</p>
-      <a href="#contact" class="cta">Visit the Gym</a>
-    </div>
+    <img src="/logo.png" alt="Mountain Muscle Logo" class="logo" />
+    <h1>Mountain Muscle</h1>
+    <p class="tagline">Disciplined bodies, disciplined minds.</p>
   </header>
 
-  <!-- ABOUT -->
-  <section class="section">
-    <div class="container">
-      <h2>Old School. No Excuses.</h2>
-      <p>
-        Mountain Muscle is a no-frills, old-iron gym built for people who show up
-        and put in the work. No corporate fluff. No gimmicks.
-        Just disciplined training in the heart of Oakhurst.
-      </p>
-    </div>
-  </section>
+  <main class="content">
+    <section>
+      <h2>Location</h2>
+      <p>40118 Enterprise Dr.<br>Oakhurst, CA 93644</p>
 
-  <!-- FEATURES -->
-  <section class="section dark">
-    <div class="container features">
-      <div class="feature">
-        <h3>Serious Training</h3>
-        <p>Free weights, machines, and space to train the right way.</p>
-      </div>
-      <div class="feature">
-        <h3>Community Driven</h3>
-        <p>A gym where effort is respected and discipline is earned.</p>
-      </div>
-      <div class="feature">
-        <h3>Growing Toward 24/7 Access</h3>
-        <p>Building toward secure, round-the-clock availability.</p>
-      </div>
-    </div>
-  </section>
+      <a
+        class="map-link"
+        href="https://www.google.com/maps/search/?api=1&query=Mountain+Muscle"
+        target="_blank"
+        rel="noopener"
+      >
+        View on Google Maps
+      </a>
+    </section>
 
-  <!-- LOCATION -->
-  <section class="section">
-    <div class="container">
-      <h2>Find Us</h2>
-      <p>
-        40118 Enterprise Dr.<br>
-        Oakhurst, CA 93644
-      </p>
-
-      <div class="map">
-        <iframe
-          src="https://www.google.com/maps?q=Mountain+Muscle+Oakhurst+CA&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section dark" id="contact">
-    <div class="container">
+    <section>
       <h2>Contact</h2>
       <p>
-        Phone: <a href="tel:15596417255">(559) 641-7255</a>
+        <a href="tel:15596417255">(559) 641-7255</a>
       </p>
+    </section>
 
+    <section>
+      <h2>Follow Us</h2>
       <div class="socials">
-        <a href="https://www.facebook.com/MountainMuscleOakhurst" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://www.instagram.com/mountainmuscleoakhurst" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/MountainMuscleOakhurst" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/mountainmuscleoakhurst" target="_blank">Instagram</a>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- FOOTER -->
   <footer>
-    <p>© <span id="year"></span> Mountain Muscle · Oakhurst, CA</p>
+    <p>© Mountain Muscle · Oakhurst, CA</p>
   </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
 </body>
 </html>

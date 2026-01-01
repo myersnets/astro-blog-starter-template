@@ -1,7 +1,7 @@
 :root {
-  --black: #0f0f0f;
-  --dark: #1a1a1a;
-  --gray: #b3b3b3;
+  --black: #0b0b0b;
+  --dark: #161616;
+  --gray: #b5b5b5;
   --white: #ffffff;
   --accent: #c59d5f;
 }
@@ -13,16 +13,29 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
   background: var(--black);
   color: var(--white);
   line-height: 1.6;
 }
 
+/* NAV / LOGO */
+.nav {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+}
+
+.logo {
+  height: 80px;
+  width: auto;
+}
+
 /* HERO */
 .hero {
   height: 90vh;
-  background: url("https://images.unsplash.com/photo-1599058917212-d750089bc07e") center/cover no-repeat;
+  background: url("https://images.unsplash.com/photo-1599058917212-d750089bc07e") center / cover no-repeat;
   position: relative;
   display: flex;
   align-items: center;
@@ -32,35 +45,38 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.65);
+  background: rgba(0, 0, 0, 0.65);
 }
 
 .hero-content {
   position: relative;
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   padding: 20px;
 }
 
 .hero h1 {
   font-family: 'Oswald', sans-serif;
   font-size: clamp(3rem, 6vw, 5rem);
-  letter-spacing: 2px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
 
 .tagline {
   margin: 20px 0 30px;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: var(--gray);
 }
 
+/* CTA */
 .cta {
   display: inline-block;
-  padding: 14px 32px;
+  padding: 14px 36px;
   border: 2px solid var(--accent);
   color: var(--accent);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 1px;
   transition: all 0.3s ease;
 }
 
@@ -86,13 +102,15 @@ body {
 
 h2 {
   font-family: 'Oswald', sans-serif;
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 p {
   color: var(--gray);
-  max-width: 700px;
+  max-width: 750px;
   margin: 0 auto;
 }
 
@@ -104,6 +122,8 @@ p {
 }
 
 .feature h3 {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 1px;
   color: var(--accent);
   margin-bottom: 10px;
 }
@@ -129,7 +149,8 @@ p {
   margin: 0 15px;
   color: var(--accent);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 /* FOOTER */

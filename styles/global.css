@@ -35,8 +35,6 @@ body {
 /* HERO */
 .hero {
   height: 90vh;
-
-.hero {
   background-image: url("/assets/hero.jpg");
   position: relative;
   display: flex;

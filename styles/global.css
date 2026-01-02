@@ -37,7 +37,7 @@ body {
   height: 90vh;
 
 .hero {
-  background-image: url("/assets/hero.jpg");
+  background-image: ("/assets/hero.jpg");
   position: relative;
   display: flex;
   align-items: center;

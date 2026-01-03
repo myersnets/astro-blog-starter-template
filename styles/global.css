@@ -173,6 +173,7 @@ a {
   /* Make logo smaller on phone screens */
   .logo {
     width: 300px !important;
+    align-items: center;
     margin: 0 auto;
     display: block;
   }

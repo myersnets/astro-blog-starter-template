@@ -166,3 +166,45 @@ footer {
 a {
   color: var(--accent);
 }
+
+/* ——— MOBILE LOGO & HERO LAYOUT FIX ——— */
+@media (max-width: 768px) {
+
+  /* Make logo smaller on phone screens */
+  .logo {
+    width: 140px !important;
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* Stack hero items vertically and center */
+  .hero-content,
+  .hero img.logo {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Ensure the hero section content is centered */
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  /* Make heading text also centered */
+  .hero h1,
+  .tagline {
+    width: 100%;
+    text-align: center !important;
+  }
+}
+
+/* ——— OPTIONAL LANDSCAPE OPTIMIZATION ——— */
+@media (max-height: 500px) and (orientation: landscape) {
+  .logo {
+    width: 120px !important;
+  }
+}

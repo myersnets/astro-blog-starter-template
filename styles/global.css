@@ -172,7 +172,7 @@ a {
 
   /* Make logo smaller on phone screens */
   .logo {
-    width: 140px !important;
+    width: 300px !important;
     margin: 0 auto;
     display: block;
   }
@@ -205,6 +205,6 @@ a {
 /* ——— OPTIONAL LANDSCAPE OPTIMIZATION ——— */
 @media (max-height: 500px) and (orientation: landscape) {
   .logo {
-    width: 120px !important;
+    width: 300px !important;
   }
 }

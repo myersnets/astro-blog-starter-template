@@ -167,6 +167,15 @@ a {
   color: var(--accent);
 }
 
+.schedule-image {
+  width: 100%;
+  max-width: 800px;   /* prevents it from being huge on desktop */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
 /* ——— MOBILE LOGO & HERO LAYOUT FIX ——— */
 @media (max-width: 768px) {
 

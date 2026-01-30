@@ -36,6 +36,8 @@ body {
 .hero {
   height: 90vh;
   background-image: url("/assets/hero.jpg");
+  background-size: contain;
+  padding: 3rem 1.5rem;
   position: relative;
   display: flex;
   align-items: center;

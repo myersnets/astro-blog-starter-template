@@ -38,6 +38,7 @@ body {
   background-image: url("/assets/hero.jpg");
   background-size: contain;
   padding: 3rem 1.5rem;
+  background-repeat: no-repeat;
   position: relative;
   display: flex;
   align-items: center;

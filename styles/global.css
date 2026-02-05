@@ -2,11 +2,11 @@
    COLOR SYSTEM (Millennial Gray)
    ============================== */
 :root {
-  --bg-main: #141414;        /* primary background */
-  --bg-alt: #1f1f1f;         /* section contrast */
-  --bg-soft: #262626;        /* subtle panels */
-  --text-main: #f2f2f2;      /* off-white */
-  --text-muted: #c7c7c7;     /* body text */
+  --bg-main: #323232;        /* primary background */
+  --bg-alt: #3b3b3b;         /* section contrast */
+  --bg-soft: #444444;        /* subtle panels */
+  --text-main: #fafafa;      /* off-white */
+  --text-muted: #e4e4e4;     /* body text */
   --accent: #c59d5f;         /* gold */
 }
 

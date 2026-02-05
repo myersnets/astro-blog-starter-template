@@ -297,3 +297,50 @@ a {
     padding-bottom: 14px;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
+
+/* Sticky top menu */
+.top-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+
+  padding: 10px 12px;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(8px);
+}
+
+.top-menu a {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.top-menu a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* Make room for the fixed menu so hero isn't covered */
+.hero {
+  padding-top: 4.5rem;
+}
+
+/* Mobile: allow wrapping */
+@media (max-width: 520px) {
+  .top-menu {
+    flex-wrap: wrap;
+    gap: 10px 14px;
+  }
+}

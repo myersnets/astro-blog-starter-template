@@ -13,15 +13,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
 
   <!-- Global Styles -->
-  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="/styles/global.css">
 </head>
+
 <body>
+  <!-- Top Menu (scrolls to sections) -->
+  <div class="top-menu">
+    <a href="#contact">Contact</a>
+    <a href="#team">Meet the Team</a>
+    <a href="#classes">Class Schedule</a>
+    <a href="#visit">Come on in</a>
+  </div>
 
   <!-- HEADER / HERO -->
   <header class="hero">
     <nav class="nav">
       <img
-        src="assets/mountain-muscle-logo.png"
+        src="/assets/mountain-muscle-logo.png"
         alt="Mountain Muscle gym logo"
         class="logo"
       />
@@ -32,7 +40,7 @@
     <div class="hero-content">
       <h1>Mountain Muscle</h1>
       <p class="tagline">Disciplined bodies, disciplined minds.</p>
-      <a href="#contact" class="cta">Contact us!</a>
+      <a href="#visit" class="cta">Come on in</a>
     </div>
   </header>
 
@@ -67,9 +75,9 @@
   </section>
 
   <!-- LOCATION -->
-  <section class="section">
+  <section class="section" id="visit">
     <div class="container">
-      <h2>Find Us</h2>
+      <h2>Come on in</h2>
       <p>
         40118 Enterprise Dr.<br>
         Oakhurst, CA 93644
@@ -100,67 +108,61 @@
     </div>
   </section>
 
-<section id="team" class="section">
-  <h2>Meet the Team</h2>
+  <!-- TEAM -->
+  <section id="team" class="section">
+    <div class="container">
+      <h2>Meet the Team</h2>
 
-  <div class="team-grid">
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="/assets/instructor1.jpg" alt="Kathy Jackson">
+          <h3>Kathy Jackson</h3>
+          <p>Silver Sneakers instructor specializing in functional training and mobility.</p>
+        </div>
 
-    <div class="team-member">
-      <img src="/assets/instructor1.jpg" alt="Kathy Jackson">
-      <h3>Kathy Jackson</h3>
-      <p>
-       Silver Sneakers instructor specializing in functional training and mobility.
-      </p>
+        <div class="team-member">
+          <img src="/assets/instructor5.jpg" alt="Karina Brown">
+          <h3>Karina Brown</h3>
+          <p>General wellness and strength training.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="/assets/instructor2.jpg" alt="Gerri Russell">
+          <h3>Gerri Russell</h3>
+          <p>REFIT group fitness instructor with a focus on conditioning and endurance.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="/assets/instructor3.jpg" alt="Lisa Wobler">
+          <h3>Lisa Wobler</h3>
+          <p>General flow yoga instructor.</p>
+        </div>
+
+        <div class="team-member">
+          <img src="/assets/instructor4.jpg" alt="Meloni Mullins">
+          <h3>Meloni Mullins</h3>
+          <p>Silver Sneakers certified instructor — strength circuit, mobility, and conditioning.</p>
+        </div>
+      </div>
     </div>
-    
-    <div class="team-member">
-      <img src="/assets/instructor5.jpg" alt="Karina Brown">
-      <h3>Karina Brown</h3>
-      <p>
-        General wellness and strength training.
+  </section>
+
+  <!-- CLASSES -->
+  <section id="classes" class="section dark">
+    <div class="container">
+      <h2>Class Schedule</h2>
+
+      <p class="section-intro">
+        Group classes are included with membership. Schedule subject to change.
       </p>
+
+      <img
+        src="/assets/class-schedule.png"
+        alt="Weekly class schedule"
+        class="schedule-image"
+      />
     </div>
-
-    <div class="team-member">
-      <img src="/assets/instructor2.jpg" alt="Gerri Russell">
-      <h3>Gerri Russell</h3>
-      <p>
-        REFIT Group fitness instructor with a focus on conditioning and endurance.
-      </p>
-    </div>
-
-    <div class="team-member">
-      <img src="/assets/instructor3.jpg" alt="Lisa Wobler">
-      <h3>Lisa Wobler</h3>
-      <p>
-        General flow yoga instructor.
-      </p>
-    </div>
-
-    <div class="team-member">
-      <img src="/assets/instructor4.jpg" alt="Meloni Mullins">
-      <h3>Meloni Mullins</h3>
-      <p>
-       Silver Sneakers certified instructor, strength circuit, mobility and conditioning training.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-  <section id="classes" class="section">
-  <h2>Class Schedule</h2>
-
-  <p class="section-intro">
-    Group classes are included with membership. Schedule subject to change.
-  </p>
-
-  <img 
-  src="/assets/class-schedule.png" 
-  alt="Weekly class schedule"
-  class="schedule-image"
->
-
+  </section>
 
   <!-- FOOTER -->
   <footer>
@@ -170,6 +172,5 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>

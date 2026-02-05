@@ -406,3 +406,5 @@ html {
 .hero {
   padding-top: 4rem;
 }
+html { scroll-behavior: smooth; }
+section { scroll-margin-top: 90px; }

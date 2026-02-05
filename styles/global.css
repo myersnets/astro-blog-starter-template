@@ -23,6 +23,47 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ==============================
+   LOGO SPLASH (intro animation)
+   ============================== */
+.logo-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: grid;
+  place-items: center;
+
+  /* Match your site background so it feels seamless */
+  background: var(--bg-main);
+
+  opacity: 1;
+  transition: opacity 650ms ease;
+}
+
+.logo-splash.is-fading {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.logo-splash.is-hidden {
+  display: none;
+}
+
+/* Size the animation nicely on mobile + desktop */
+.logo-splash__video {
+  display: block;
+  width: min(78vw, 560px);
+  height: auto;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .logo-splash {
+    display: none !important;
+  }
+}
+
 body {
   font-family: "Roboto Condensed", sans-serif;
   background: var(--bg-main);

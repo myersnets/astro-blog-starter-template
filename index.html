@@ -16,7 +16,37 @@
   <link rel="stylesheet" href="/styles/global.css">
 </head>
 
-<body>
+<script>
+  const menuWrap = document.querySelector(".menu-wrap");
+  const menuBtn = document.getElementById("menuButton");
+  const menuDropdown = document.getElementById("menuDropdown");
+
+  function closeMenu() {
+    menuWrap.classList.remove("open");
+    menuBtn.setAttribute("aria-expanded", "false");
+  }
+
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = menuWrap.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  // Close when clicking a link
+  menuDropdown.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", closeMenu);
+  });
+
+  // Close when clicking outside
+  document.addEventListener("click", closeMenu);
+
+  // ESC closes
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+</script>
+
+  <body>
   
 <!-- Dropdown Menu -->
 <div class="menu-wrap">

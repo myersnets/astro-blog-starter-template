@@ -56,6 +56,36 @@
     </div>
   </header>
 
+<!-- Splash overlay (plays once, then fades away) -->
+<div id="logo-splash" class="logo-splash" aria-hidden="true">
+  <video
+    id="logo-splash-video"
+    class="logo-splash__video"
+    autoplay
+    muted
+    playsinline
+    preload="auto"
+  >
+    <source src="/assets/logo-splash.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<!-- Your normal site header (logo in its final position) -->
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Mountain Muscle Gym home">
+    <img
+      class="brand__logo"
+      src="/assets/logo.png"
+      alt="Mountain Muscle Gym"
+      width="220"
+      height="80"
+      decoding="async"
+      fetchpriority="high"
+    />
+  </a>
+  <!-- nav, etc -->
+</header>
+  
   <!-- ABOUT -->
   <section class="section">
     <div class="container">

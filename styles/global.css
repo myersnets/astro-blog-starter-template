@@ -19,7 +19,7 @@ body {
   line-height: 1.6;
 }
 
-/* NAV / LOGO */
+/* NAV / LOGO (Desktop) */
 .nav {
   position: absolute;
   top: 20px;
@@ -27,9 +27,13 @@ body {
   z-index: 10;
 }
 
+/* ✅ Logo: never distort */
 .logo {
-  height: 180px;
-  width: 300px;
+  display: block;
+  height: 180px;     /* controls size */
+  width: auto;       /* keeps aspect ratio */
+  max-width: 320px;  /* prevents it getting too wide */
+  object-fit: contain;
 }
 
 /* HERO */
@@ -37,9 +41,12 @@ body {
   height: 90vh;
   background-image: url("/assets/hero.jpg");
   background-size: cover;
-  padding: 3rem 1.5rem;
+  background-position: center;
   background-repeat: no-repeat;
+
+  padding: 3rem 1.5rem;
   position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,6 +63,7 @@ body {
   text-align: center;
   max-width: 900px;
   padding: 20px;
+  z-index: 2;
 }
 
 .hero h1 {
@@ -91,6 +99,7 @@ body {
 /* SECTIONS */
 .section {
   padding: 80px 20px;
+  text-align: center;
 }
 
 .section.dark {
@@ -170,68 +179,17 @@ a {
   color: var(--accent);
 }
 
+/* Class schedule image */
 .schedule-image {
   width: 100%;
-  max-width: 800px;   /* prevents it from being huge on desktop */
+  max-width: 800px;
   height: auto;
   display: block;
   margin: 0 auto;
   border-radius: 6px;
 }
 
-/* ——— MOBILE LOGO & HERO LAYOUT FIX ——— */
-@media (max-width: 768px) {
-
-  /* Make logo smaller on phone screens */
-  .logo {
-    width: 300px !important;
-    align-items: center;
-    margin: 0 auto;
-    display: block;
-  }
-
-  /* Stack hero items vertically and center */
-  .hero-content,
-  .hero img.logo {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* Ensure the hero section content is centered */
-  .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 1.5rem;
-    padding-bottom: 1rem;
-  }
-
-  /* Make heading text also centered */
-  .hero h1,
-  .tagline {
-    width: 100%;
-    text-align: center !important;
-  }
-}
-
-/* ——— OPTIONAL LANDSCAPE OPTIMIZATION ——— */
-@media (max-height: 500px) and (orientation: landscape) {
-  .logo {
-    width: 300px !important;
-  }
-}
-
-.section {
-  padding: 3rem 1.5rem;
-  text-align: center;
-}
-
-.section h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
+/* Schedule placeholder */
 .section-intro {
   max-width: 600px;
   margin: 0 auto 2rem;
@@ -251,6 +209,8 @@ a {
   opacity: 0.7;
   margin-top: 0.5rem;
 }
+
+/* Team */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -274,53 +234,62 @@ a {
   font-size: 0.9rem;
   opacity: 0.85;
 }
-/* ===== Mobile hero fixes: center logo + hide redundant H1 ===== */
-@media (max-width: 768px) {
-  /* Stop any desktop absolute positioning from affecting mobile */
-  .nav {
-    position: static !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
 
+/* ===== Mobile hero fixes ===== */
+@media (max-width: 768px) {
+  /* Neutralize desktop positioning on mobile */
+  .nav {
+    position: static;
     width: 100%;
     display: flex;
-    justify-content: center;   /* center logo */
+    justify-content: center; /* center logo */
     align-items: center;
     padding: 14px 12px 0;
     margin: 0 auto;
-    z-index: 3;                /* stays above overlay */
+    z-index: 3;
   }
 
+  /* ✅ Logo: size without distortion */
   .logo {
-    display: block;
-    margin: 0 auto !important;
-    height: 84px;              /* adjust size if you want */
+    height: 84px;
     width: auto;
-    max-width: 80vw;           /* prevents overflow */
+    max-width: 80vw;
+    object-fit: contain;
   }
 
-  /* Hide the big title on mobile (logo already says it) */
+  /* Hide redundant title on mobile */
   .hero-content h1 {
-    display: none !important;
+    display: none;
   }
 
-  /* Keep tagline + CTA centered and spaced nicely */
+  .hero {
+    height: auto;              /* avoids weird cropping on small heights */
+    min-height: 70vh;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+    flex-direction: column;
+  }
+
   .hero-content {
-    text-align: center !important;
+    text-align: center;
     padding: 14px 12px 22px;
+  }
+
+  .tagline {
+    margin: 12px 0 20px;
+    font-size: 1.1rem;
   }
 }
 
-/* Landscape: smaller logo + tighter spacing so nothing collides */
+/* Landscape: reduce logo + tighten spacing */
 @media (max-width: 768px) and (orientation: landscape) {
   .logo {
     height: 56px;
     max-width: 55vw;
   }
 
-  .nav {
-    padding-top: 8px;
+  .hero {
+    min-height: 100vh; /* landscape phones are short; give room */
   }
 
   .hero-content {

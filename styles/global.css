@@ -1,9 +1,9 @@
 :root {
-  --black: #0b0b0b;
-  --dark: #161616;
-  --gray: #b5b5b5;
-  --white: #ffffff;
-  --accent: #c59d5f;
+  --black: #121212;      /* was near pure black */
+  --dark: #1e1e1e;       /* millennial charcoal */
+  --gray: #c6c6c6;       /* softer body text */
+  --white: #f5f5f5;      /* off-white, easier on eyes */
+  --accent: #c59d5f;     /* keep gold */
 }
 
 * {
@@ -55,7 +55,7 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .hero-content {

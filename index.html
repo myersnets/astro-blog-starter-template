@@ -16,51 +16,26 @@
   <link rel="stylesheet" href="/styles/global.css">
 </head>
 
-<script>
-  const menuWrap = document.querySelector(".menu-wrap");
-  const menuBtn = document.getElementById("menuButton");
-  const menuDropdown = document.getElementById("menuDropdown");
+<body>
 
-  function closeMenu() {
-    menuWrap.classList.remove("open");
-    menuBtn.setAttribute("aria-expanded", "false");
-  }
+  <!-- DROPDOWN MENU -->
+  <div class="menu-wrap">
+    <button
+      class="menu-button"
+      id="menuButton"
+      aria-label="Open menu"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
 
-  menuBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const isOpen = menuWrap.classList.toggle("open");
-    menuBtn.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  // Close when clicking a link
-  menuDropdown.querySelectorAll("a").forEach((a) => {
-    a.addEventListener("click", closeMenu);
-  });
-
-  // Close when clicking outside
-  document.addEventListener("click", closeMenu);
-
-  // ESC closes
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
-  });
-</script>
-
-  <body>
-  
-<!-- Dropdown Menu -->
-<div class="menu-wrap">
-  <button class="menu-button" id="menuButton" aria-label="Open menu" aria-expanded="false">
-    ☰
-  </button>
-
-  <div class="menu-dropdown" id="menuDropdown">
-    <a href="#contact">Contact</a>
-    <a href="#team">Meet the Team</a>
-    <a href="#classes">Class Schedule</a>
-    <a href="#visit">Come on in</a>
+    <div class="menu-dropdown" id="menuDropdown">
+      <a href="#contact">Contact</a>
+      <a href="#team">Meet the Team</a>
+      <a href="#classes">Class Schedule</a>
+      <a href="#visit">Come on in</a>
+    </div>
   </div>
-</div>
 
   <!-- HEADER / HERO -->
   <header class="hero">
@@ -206,8 +181,40 @@
     <p>© <span id="year"></span> Mountain Muscle · Oakhurst, CA</p>
   </footer>
 
+  <!-- SCRIPTS -->
   <script>
+    // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Dropdown menu logic
+    const menuWrap = document.querySelector(".menu-wrap");
+    const menuBtn = document.getElementById("menuButton");
+    const menuDropdown = document.getElementById("menuDropdown");
+
+    function closeMenu() {
+      if (!menuWrap) return;
+      menuWrap.classList.remove("open");
+      menuBtn?.setAttribute("aria-expanded", "false");
+    }
+
+    if (menuWrap && menuBtn && menuDropdown) {
+      menuBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = menuWrap.classList.toggle("open");
+        menuBtn.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      menuDropdown.querySelectorAll("a").forEach((a) => {
+        a.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("click", closeMenu);
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+    }
   </script>
+
 </body>
 </html>

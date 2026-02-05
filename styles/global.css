@@ -89,7 +89,7 @@ section {
   display: block;
   height: 180px;
   width: auto;
-  max-width: 320px;
+  max-width: 600px;
   object-fit: contain;
 }
 
@@ -274,7 +274,7 @@ p {
 
 .schedule-image {
   width: 100%;
-  max-width: 800px;
+  max-width: 1200px;
   height: auto;
   display: block;
   margin: 0 auto;
@@ -360,7 +360,7 @@ footer {
 
   .logo {
     height: 84px;
-    max-width: 80vw;
+    max-width: 100vw;
   }
 
   .hero {
@@ -383,6 +383,6 @@ footer {
   }
 
   .hero {
-    min-height: 100vh;
+    min-height: 250vh;
   }
 }

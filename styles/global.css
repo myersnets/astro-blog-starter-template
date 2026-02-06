@@ -78,11 +78,9 @@ section {
 /* Splash video constraints */
 .logo-splash__video {
   display: block;
-
   width: min(72vw, 520px);
   max-width: 520px;
   max-height: 42vh;
-
   height: auto;
   object-fit: contain;
 }
@@ -193,7 +191,7 @@ section {
 }
 
 /* ==============================
-   SECTIONS / CONTENT
+   SECTIONS
    ============================== */
 .section {
   padding: 80px 20px;
@@ -222,6 +220,101 @@ p {
   color: var(--text-muted);
   max-width: 750px;
   margin: 0 auto;
+}
+
+/* ==============================
+   FEATURES
+   ============================== */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.feature h3 {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+/* ==============================
+   MAP
+   ============================== */
+.map {
+  margin-top: 30px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.map iframe {
+  width: 100%;
+  height: 350px;
+  border: 0;
+}
+
+/* ==============================
+   SOCIALS
+   ============================== */
+.socials {
+  margin-top: 20px;
+}
+
+.socials a {
+  margin: 0 15px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ==============================
+   TEAM
+   ============================== */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto 0;
+}
+
+/* Normalize instructor images (same size, circle crop) */
+.team-member img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+.team-member h3 {
+  margin-bottom: 0.5rem;
+}
+
+.team-member p {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* ==============================
+   CLASS SCHEDULE
+   ============================== */
+.section-intro {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: var(--text-muted);
+}
+
+.schedule-image {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
 }
 
 /* ==============================
@@ -254,6 +347,36 @@ footer {
   border-radius: 10px;
   cursor: pointer;
   backdrop-filter: blur(8px);
+}
+
+.menu-button:hover {
+  background: rgba(20,20,20,0.75);
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 52px;
+  right: 0;
+  min-width: 190px;
+  background: rgba(22,22,22,0.96);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  display: none;
+}
+
+.menu-dropdown a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.menu-dropdown a:hover {
+  background: rgba(197,157,95,0.18);
 }
 
 .menu-wrap.open .menu-dropdown {
@@ -300,46 +423,5 @@ footer {
     min-height: 100vh;
   }
 }
-/* --- RESTORE DROPDOWN MENU PANEL STYLES --- */
-.menu-button:hover {
-  background: rgba(20,20,20,0.75);
-}
 
-.menu-dropdown {
-  position: absolute;
-  top: 52px;
-  right: 0;
-  min-width: 190px;
-  background: rgba(22,22,22,0.96);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 12px;
-  padding: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
-  display: none;
-}
 
-.menu-dropdown a {
-  display: block;
-  padding: 10px 12px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: var(--text-main);
-  font-weight: 700;
-}
-
-.menu-dropdown a:hover {
-  background: rgba(197,157,95,0.18);
-}
-
-.menu-wrap.open .menu-dropdown {
-  display: block;
-}
-/* --- RESTORE / NORMALIZE TEAM PHOTOS --- */
-.team-member img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto 1rem;
-}

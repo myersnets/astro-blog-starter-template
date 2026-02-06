@@ -13,6 +13,25 @@
   <title>Mountain Muscle | Oakhurst CA Gym</title>
   <meta name="description" content="Mountain Muscle is an old-school gym in Oakhurst, CA. Disciplined minds, disciplined bodies." />
 
+  <!-- Social Preview / SEO -->
+  <link rel="canonical" href="https://mountainmuscle.fitness/">
+  <meta name="theme-color" content="#323232">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mountain Muscle | Oakhurst CA Gym">
+  <meta property="og:description" content="Mountain Muscle is an old-school gym in Oakhurst, CA. Disciplined minds, disciplined bodies.">
+  <meta property="og:url" content="https://mountainmuscle.fitness/">
+  <meta property="og:image" content="https://mountainmuscle.fitness/assets/og/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mountain Muscle | Oakhurst CA Gym">
+  <meta name="twitter:description" content="Mountain Muscle is an old-school gym in Oakhurst, CA. Disciplined minds, disciplined bodies.">
+  <meta name="twitter:image" content="https://mountainmuscle.fitness/assets/og/og-image.jpg">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,7 +43,7 @@
 
 <body>
 
-  <!-- Splash overlay (plays once, then flies into the top-left logo + dissolves) -->
+  <!-- Splash overlay (plays once, then pixel-perfect flies into the top-left logo + dissolves) -->
   <div id="logo-splash" class="logo-splash" aria-hidden="true">
     <video
       id="logo-splash-video"
@@ -207,6 +226,29 @@
     <p>© <span id="year"></span> Mountain Muscle · Oakhurst, CA</p>
   </footer>
 
+  <!-- Local Business Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Gym",
+    "name": "Mountain Muscle",
+    "url": "https://mountainmuscle.fitness/",
+    "telephone": "+15596417255",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "40118 Enterprise Dr.",
+      "addressLocality": "Oakhurst",
+      "addressRegion": "CA",
+      "postalCode": "93644",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://www.facebook.com/MountainMuscleOakhurst",
+      "https://www.instagram.com/mountainmuscleoakhurst"
+    ]
+  }
+  </script>
+
   <!-- SCRIPTS -->
   <script>
     // Footer year
@@ -248,30 +290,25 @@
       const targetLogo = document.querySelector(".logo");
       if (!splash || !video || !targetLogo) return;
 
-      const FAILSAFE_MS = 5700; // your MP4 is 6 seconds
+      const FAILSAFE_MS = 6000; // MP4 is ~6 seconds
       const TRANSITION_MAX_MS = 750; // should match CSS transform transition (750ms) or longer
 
       const computeAndFly = () => {
         if (splash.classList.contains("is-fading") || splash.classList.contains("is-hidden")) return;
 
-        // Measure current video box + logo box in viewport space
         const v = video.getBoundingClientRect();
         const t = targetLogo.getBoundingClientRect();
 
-        // Centers
         const vCx = v.left + v.width / 2;
         const vCy = v.top + v.height / 2;
         const tCx = t.left + t.width / 2;
         const tCy = t.top + t.height / 2;
 
-        // Translate to align centers
         const dx = tCx - vCx;
         const dy = tCy - vCy;
 
-        // Scale so splash becomes roughly logo-sized (fit within logo bounds)
         const scale = Math.min(t.width / v.width, t.height / v.height);
 
-        // Push values into CSS vars (CSS handles animation)
         splash.style.setProperty("--fly-x", `${dx}px`);
         splash.style.setProperty("--fly-y", `${dy}px`);
         splash.style.setProperty("--fly-scale", `${scale}`);
@@ -286,7 +323,6 @@
       video.addEventListener("ended", computeAndFly);
       video.addEventListener("error", () => splash.classList.add("is-hidden"));
 
-      // Attempt autoplay; if blocked, skip splash
       (async () => {
         try {
           await video.play();
@@ -295,7 +331,6 @@
         }
       })();
 
-      // Failsafe: if 'ended' doesn't fire for any reason, still animate out at 6s
       window.setTimeout(computeAndFly, FAILSAFE_MS);
     })();
   </script>

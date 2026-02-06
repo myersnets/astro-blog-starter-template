@@ -48,12 +48,23 @@ section {
   background: var(--bg-main);
 
   opacity: 1;
-  transition: opacity 650ms ease;
+
+  /* Animate both fade + move */
+  transform: translate3d(0, 0, 0) scale(1);
+  transition:
+    opacity 650ms ease,
+    transform 750ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  will-change: opacity, transform;
 }
 
+/* This is the "fly to top-left" moment */
 .logo-splash.is-fading {
   opacity: 0;
   pointer-events: none;
+
+  /* Desktop: move toward your .nav at top-left */
+  transform: translate3d(-42vw, -38vh, 0) scale(0.35);
 }
 
 .logo-splash.is-hidden {
@@ -66,7 +77,6 @@ section {
   width: min(72vw, 520px);
   max-width: 520px;
 
-  /* Key constraints for mobile */
   max-height: 42vh;
   height: auto;
 
@@ -79,6 +89,11 @@ section {
     width: min(70vw, 380px);
     max-height: 34vh;
   }
+
+  /* Mobile: different travel distance + scale so it lands nicely */
+  .logo-splash.is-fading {
+    transform: translate3d(-28vw, -44vh, 0) scale(0.45);
+  }
 }
 
 /* Landscape phones: keep it shorter */
@@ -86,6 +101,10 @@ section {
   .logo-splash__video {
     width: min(52vw, 360px);
     max-height: 46vh;
+  }
+
+  .logo-splash.is-fading {
+    transform: translate3d(-40vw, -28vh, 0) scale(0.40);
   }
 }
 
@@ -405,7 +424,6 @@ footer {
     height: 120px;
   }
 
-  /* Fix: was 250vh (way too tall) */
   .hero {
     min-height: 100vh;
   }

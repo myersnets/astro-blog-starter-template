@@ -53,7 +53,6 @@
       playsinline
       preload="auto"
     >
-      <!-- Optional (recommended): add /assets/logo-splash.webm for better performance -->
       <source src="/assets/logo-splash.webm" type="video/webm" />
       <source src="/assets/logo-splash.mp4" type="video/mp4" />
     </video>
@@ -291,7 +290,7 @@
       if (!splash || !video || !targetLogo) return;
 
       const FAILSAFE_MS = 6000; // MP4 is ~6 seconds
-      const TRANSITION_MAX_MS = 750; // should match CSS transform transition (750ms) or longer
+      const TRANSITION_MAX_MS = 750; // match CSS transform transition
 
       const computeAndFly = () => {
         if (splash.classList.contains("is-fading") || splash.classList.contains("is-hidden")) return;
@@ -307,6 +306,7 @@
         const dx = tCx - vCx;
         const dy = tCy - vCy;
 
+        // Scale splash down to logo size
         const scale = Math.min(t.width / v.width, t.height / v.height);
 
         splash.style.setProperty("--fly-x", `${dx}px`);

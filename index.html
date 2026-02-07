@@ -287,6 +287,37 @@
       const splash = document.getElementById("logo-splash");
       const video = document.getElementById("logo-splash-video");
       const targetLogo = document.querySelector(".logo");
+      const pickSplashSrc = () => {
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+
+  // Portrait (phones)
+  if (h > w) {
+    return "/assets/logo-splash-portrait.mp4";
+  }
+
+  // Ultra-wide (optional)
+  if (w / h >= 2.1) {
+    return "/assets/logo-splash-ultrawide.mp4";
+  }
+
+  // Default: landscape / desktop
+  return "/assets/logo-splash-landscape.mp4";
+};
+
+// Swap video source before play
+const src = pickSplashSrc();
+
+video.pause();
+video.innerHTML = "";
+
+const source = document.createElement("source");
+source.src = src;
+source.type = "video/mp4";
+video.appendChild(source);
+
+video.load();
+      
       if (!splash || !video || !targetLogo) return;
 
       const FAILSAFE_MS = 6000; // MP4 is ~6 seconds

@@ -1,13 +1,73 @@
 /* ==============================
-   COLOR SYSTEM (Millennial Gray)
+   COLOR SYSTEM (Auto Dark/Light)
+   Default: Dark (Millennial Gray)
    ============================== */
+
 :root {
+  /* Backgrounds */
   --bg-main: #323232;
-  --bg-alt: #3b3b3b;
+  --bg-alt:  #3b3b3b;
   --bg-soft: #444444;
+
+  /* Text */
   --text-main: #fafafa;
   --text-muted: #e4e4e4;
+
+  /* Accent */
   --accent: #c59d5f;
+
+  /* Theme-dependent UI surfaces */
+  --hero-overlay: rgba(0,0,0,0.42);
+
+  --footer-bg: #151515;
+
+  --menu-btn-bg: rgba(20,20,20,0.50);
+  --menu-btn-bg-hover: rgba(20,20,20,0.75);
+  --menu-btn-border: rgba(197,157,95,0.90);
+  --menu-btn-text: var(--accent);
+
+  --menu-dd-bg: rgba(22,22,22,0.96);
+  --menu-dd-border: rgba(255,255,255,0.12);
+  --menu-dd-shadow: rgba(0,0,0,0.45);
+  --menu-dd-link: var(--text-main);
+  --menu-dd-hover: rgba(197,157,95,0.18);
+
+  --map-border: #333;
+}
+
+/* Auto Light Mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Backgrounds: dove gray → alabaster */
+    --bg-main: #f2f2f0;
+    --bg-alt:  #e6e6e3;
+    --bg-soft: #ddddda;
+
+    /* Text: charcoal (not black) */
+    --text-main: #222222;
+    --text-muted: #4a4a4a;
+
+    /* Accent: slightly deeper for contrast on light */
+    --accent: #b78f4e;
+
+    /* Theme-dependent UI surfaces */
+    --hero-overlay: rgba(255,255,255,0.55);
+
+    --footer-bg: #dededb;
+
+    --menu-btn-bg: rgba(255,255,255,0.78);
+    --menu-btn-bg-hover: rgba(255,255,255,0.92);
+    --menu-btn-border: rgba(0,0,0,0.18);
+    --menu-btn-text: #222222;
+
+    --menu-dd-bg: rgba(255,255,255,0.96);
+    --menu-dd-border: rgba(0,0,0,0.12);
+    --menu-dd-shadow: rgba(0,0,0,0.18);
+    --menu-dd-link: #222222;
+    --menu-dd-hover: rgba(183,143,78,0.14);
+
+    --map-border: rgba(0,0,0,0.18);
+  }
 }
 
 /* ==============================
@@ -19,9 +79,7 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   font-family: "Roboto Condensed", sans-serif;
@@ -30,9 +88,7 @@ body {
   line-height: 1.6;
 }
 
-section {
-  scroll-margin-top: 90px;
-}
+section { scroll-margin-top: 90px; }
 
 /* ==============================
    LOGO SPLASH (intro animation)
@@ -71,40 +127,23 @@ section {
     scale(var(--fly-scale, 0.35));
 }
 
-.logo-splash.is-hidden {
-  display: none;
-}
+.logo-splash.is-hidden { display: none; }
 
-/* ✅ FULL-SCREEN SPLASH VIDEO (cover + auto crop) */
+/* Full-screen splash video */
 .logo-splash__video {
   display: block;
-
-  /* Fill viewport */
   width: 100vw;
   height: 100vh;
 
-  /* Crop/zoom to fill on any aspect ratio */
   object-fit: cover;
   object-position: center;
 
-  /* Slight extra scale helps avoid edge artifacts on some devices */
   transform: scale(1.02);
 }
 
-/* Optional: fine-tune framing on tall phones (uncomment if needed) */
-/*
-@media (max-width: 768px) {
-  .logo-splash__video {
-    object-position: 50% 45%;
-  }
-}
-*/
-
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .logo-splash {
-    display: none !important;
-  }
+  .logo-splash { display: none !important; }
 }
 
 /* ==============================
@@ -123,6 +162,18 @@ section {
   width: auto;
   max-width: 600px;
   object-fit: contain;
+}
+
+/* Subtle logo lift (desktop only) */
+@media (hover: hover) and (pointer: fine) {
+  .logo {
+    transition: transform 200ms ease, filter 200ms ease;
+    transform-origin: top left;
+  }
+  .logo:hover {
+    transform: translateY(-2px) scale(1.01);
+    filter: drop-shadow(0 10px 18px rgba(0,0,0,0.25));
+  }
 }
 
 /* ==============================
@@ -146,7 +197,7 @@ section {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.42);
+  background: var(--hero-overlay);
 }
 
 .hero-content {
@@ -181,52 +232,21 @@ section {
   text-decoration: none;
   font-weight: 700;
   letter-spacing: 1px;
-  transition: all 0.25s ease;
-}
-
-.cta:hover {
-  background: var(--accent);
-  color: #1a1a1a;
-}
-
-/* Subtle logo lift (desktop only) */
-@media (hover: hover) and (pointer: fine) {
-  .logo {
-    transition: transform 200ms ease, filter 200ms ease;
-    transform-origin: top left;
-  }
-  .logo:hover {
-    transform: translateY(-2px) scale(1.01);
-    filter: drop-shadow(0 10px 18px rgba(0,0,0,0.25));
-  }
-}
-
-/* CTA: a little "press" feel */
-.cta {
   transform: translateZ(0);
 }
+
+/* CTA: press feel (desktop pointers) */
 @media (hover: hover) and (pointer: fine) {
   .cta {
     transition: transform 180ms ease, background 250ms ease, color 250ms ease, border-color 250ms ease;
   }
   .cta:hover {
+    background: var(--accent);
+    color: #1a1a1a;
     transform: translateY(-1px);
   }
   .cta:active {
     transform: translateY(1px) scale(0.99);
-  }
-}
-
-/* Menu button: tiny lift on hover */
-@media (hover: hover) and (pointer: fine) {
-  .menu-button {
-    transition: transform 180ms ease, background 200ms ease;
-  }
-  .menu-button:hover {
-    transform: translateY(-1px);
-  }
-  .menu-button:active {
-    transform: translateY(1px);
   }
 }
 
@@ -239,9 +259,7 @@ section {
   background: var(--bg-main);
 }
 
-.section.dark {
-  background: var(--bg-alt);
-}
+.section.dark { background: var(--bg-alt); }
 
 .container {
   max-width: 1100px;
@@ -285,7 +303,8 @@ p {
   margin-top: 30px;
   border-radius: 6px;
   overflow: hidden;
-  border: 1px solid #333;
+  border: 1px solid var(--map-border);
+  background: var(--bg-soft);
 }
 
 .map iframe {
@@ -297,9 +316,7 @@ p {
 /* ==============================
    SOCIALS
    ============================== */
-.socials {
-  margin-top: 20px;
-}
+.socials { margin-top: 20px; }
 
 .socials a {
   margin: 0 15px;
@@ -320,7 +337,6 @@ p {
   margin: 2rem auto 0;
 }
 
-/* Normalize instructor images (same size, circle crop) */
 .team-member img {
   width: 180px;
   height: 180px;
@@ -330,9 +346,7 @@ p {
   margin: 0 auto 1rem;
 }
 
-.team-member h3 {
-  margin-bottom: 0.5rem;
-}
+.team-member h3 { margin-bottom: 0.5rem; }
 
 .team-member p {
   font-size: 0.9rem;
@@ -361,7 +375,7 @@ p {
    FOOTER
    ============================== */
 footer {
-  background: #151515;
+  background: var(--footer-bg);
   padding: 20px;
   text-align: center;
   font-size: 0.9rem;
@@ -379,9 +393,9 @@ footer {
 }
 
 .menu-button {
-  border: 2px solid rgba(197,157,95,0.9);
-  background: rgba(20,20,20,0.5);
-  color: var(--accent);
+  border: 2px solid var(--menu-btn-border);
+  background: var(--menu-btn-bg);
+  color: var(--menu-btn-text);
   font-size: 22px;
   padding: 10px 12px;
   border-radius: 10px;
@@ -389,8 +403,18 @@ footer {
   backdrop-filter: blur(8px);
 }
 
-.menu-button:hover {
-  background: rgba(20,20,20,0.75);
+/* Menu button: tiny lift on hover (desktop pointers) */
+@media (hover: hover) and (pointer: fine) {
+  .menu-button {
+    transition: transform 180ms ease, background 200ms ease;
+  }
+  .menu-button:hover {
+    background: var(--menu-btn-bg-hover);
+    transform: translateY(-1px);
+  }
+  .menu-button:active {
+    transform: translateY(1px);
+  }
 }
 
 .menu-dropdown {
@@ -398,11 +422,11 @@ footer {
   top: 52px;
   right: 0;
   min-width: 190px;
-  background: rgba(22,22,22,0.96);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: var(--menu-dd-bg);
+  border: 1px solid var(--menu-dd-border);
   border-radius: 12px;
   padding: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+  box-shadow: 0 10px 30px var(--menu-dd-shadow);
   display: none;
 }
 
@@ -411,17 +435,15 @@ footer {
   padding: 10px 12px;
   border-radius: 10px;
   text-decoration: none;
-  color: var(--text-main);
+  color: var(--menu-dd-link);
   font-weight: 700;
 }
 
 .menu-dropdown a:hover {
-  background: rgba(197,157,95,0.18);
+  background: var(--menu-dd-hover);
 }
 
-.menu-wrap.open .menu-dropdown {
-  display: block;
-}
+.menu-wrap.open .menu-dropdown { display: block; }
 
 /* ==============================
    MOBILE TUNING
@@ -445,21 +467,12 @@ footer {
     flex-direction: column;
   }
 
-  .hero-content h1 {
-    display: none;
-  }
+  .hero-content h1 { display: none; }
 
-  .tagline {
-    font-size: 1.1rem;
-  }
+  .tagline { font-size: 1.1rem; }
 }
 
 @media (max-width: 768px) and (orientation: landscape) {
-  .logo {
-    height: 120px;
-  }
-
-  .hero {
-    min-height: 100vh;
-  }
+  .logo { height: 120px; }
+  .hero { min-height: 100vh; }
 }

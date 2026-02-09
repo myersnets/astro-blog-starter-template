@@ -253,7 +253,7 @@ section { scroll-margin-top: 90px; }
      font-family: "Oxanium", sans-serif;
   font-weight: 600;
   font-size: clamp(3rem, 6vw, 5rem);
-  letter-spacing: 2px;
+  letter-spacing: -1px;
   text-transform: uppercase;
   text-shadow:
      1px 1px 0 rgba(0,0,0,0.25),
@@ -265,7 +265,7 @@ section { scroll-margin-top: 90px; }
    position: absolute;
    inset: 0;
    background-image: url("/assets/grain.png");
-   opacity: 0.08;
+   opacity: 0.8;
    pointer-events: none;
    mix-blend-mode: multiply;
 }

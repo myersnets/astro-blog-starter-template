@@ -476,3 +476,288 @@ footer {
   .logo { height: 120px; }
   .hero { min-height: 100vh; }
 }
+
+/* ==============================
+   INSTRUCTOR MODALS + CLICKABLE TEAM CARDS
+   Paste at END of global.css
+   ============================== */
+
+/* Scroll lock when modal is open */
+body.no-scroll { overflow: hidden; }
+
+/* Make the team-member <button> look like your original card */
+.team-member--clickable {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.03);
+  border-radius: 14px;
+  padding: 20px 16px;
+
+  color: inherit;
+  font: inherit;
+  text-align: center;
+
+  cursor: pointer;
+  width: 100%;
+}
+
+@media (prefers-color-scheme: light) {
+  .team-member--clickable {
+    border: 1px solid rgba(0,0,0,0.12);
+    background: rgba(0,0,0,0.03);
+  }
+}
+
+/* Subtle hover/active feel */
+@media (hover: hover) and (pointer: fine) {
+  .team-member--clickable {
+    transition: transform 180ms ease, background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    will-change: transform;
+  }
+  .team-member--clickable:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(197,157,95,0.40);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+  }
+  .team-member--clickable:active {
+    transform: translateY(-1px) scale(0.99);
+  }
+}
+
+/* Keep your existing team-member image styles working for buttons */
+.team-member--clickable img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 1rem;
+  border: 2px solid rgba(197,157,95,0.35);
+}
+
+@media (prefers-color-scheme: light) {
+  .team-member--clickable img {
+    border: 2px solid rgba(183,143,78,0.28);
+  }
+}
+
+/* Accessible focus (keyboard users) */
+.team-member--clickable:focus-visible {
+  outline: 3px solid rgba(197,157,95,0.65);
+  outline-offset: 4px;
+}
+
+/* ==============================
+   MODAL THEME VARS
+   ============================== */
+:root{
+  --modal-backdrop: rgba(0,0,0,0.72);
+  --modal-panel-bg: rgba(18,18,18,0.94);
+  --modal-panel-border: rgba(255,255,255,0.12);
+  --modal-shadow: rgba(0,0,0,0.55);
+  --modal-close-bg: rgba(255,255,255,0.06);
+  --modal-close-border: rgba(255,255,255,0.14);
+}
+
+@media (prefers-color-scheme: light) {
+  :root{
+    --modal-backdrop: rgba(0,0,0,0.45);
+    --modal-panel-bg: rgba(255,255,255,0.92);
+    --modal-panel-border: rgba(0,0,0,0.12);
+    --modal-shadow: rgba(0,0,0,0.22);
+    --modal-close-bg: rgba(0,0,0,0.04);
+    --modal-close-border: rgba(0,0,0,0.12);
+  }
+}
+
+/* ==============================
+   MODAL BASE
+   ============================== */
+.modal{
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+
+  display: none; /* toggled by .is-open */
+}
+
+.modal.is-open{ display: block; }
+
+/* Backdrop */
+.modal__backdrop{
+  position: absolute;
+  inset: 0;
+  background: var(--modal-backdrop);
+  backdrop-filter: blur(10px);
+}
+
+/* Panel */
+.modal__panel{
+  position: relative;
+  width: min(980px, calc(100% - 22px));
+  margin: 44px auto;
+
+  border-radius: 18px;
+  overflow: hidden;
+
+  background: var(--modal-panel-bg);
+  border: 1px solid var(--modal-panel-border);
+  box-shadow: 0 26px 90px var(--modal-shadow);
+
+  transform: translateY(10px) scale(0.985);
+  opacity: 0;
+
+  animation: modalIn 220ms ease forwards;
+}
+
+@keyframes modalIn{
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Close button */
+.modal__close{
+  position: absolute;
+  top: 10px;
+  right: 12px;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+
+  border: 1px solid var(--modal-close-border);
+  background: var(--modal-close-bg);
+  color: var(--text-main);
+
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .modal__close{
+    transition: transform 160ms ease, background 180ms ease;
+  }
+  .modal__close:hover{
+    transform: translateY(-1px);
+    background: rgba(197,157,95,0.18);
+  }
+  @media (prefers-color-scheme: light){
+    .modal__close:hover{
+      background: rgba(183,143,78,0.14);
+    }
+  }
+}
+
+.modal__close:focus-visible{
+  outline: 3px solid rgba(197,157,95,0.65);
+  outline-offset: 3px;
+}
+
+/* Content layout */
+.modal__content{
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+}
+
+/* Media */
+.modal__media{
+  background: rgba(0,0,0,0.18);
+}
+
+@media (prefers-color-scheme: light) {
+  .modal__media{ background: rgba(0,0,0,0.06); }
+}
+
+.modal__media img{
+  width: 100%;
+  height: 100%;
+  min-height: 460px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text */
+.modal__text{
+  padding: 28px 28px 26px;
+  text-align: left;
+}
+
+.modal__text h3{
+  font-family: "Oswald", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.modal__text p{
+  max-width: none; /* override your global p width constraint */
+  margin: 0 0 14px 0;
+  color: var(--text-muted);
+}
+
+.modal__text .muted{
+  opacity: 0.85;
+  margin-bottom: 16px;
+}
+
+/* Bullets */
+.bio-bullets{
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: var(--text-muted);
+}
+
+.bio-bullets li{
+  margin: 8px 0;
+}
+
+.bio-bullets strong{
+  color: var(--text-main);
+}
+
+/* Tags */
+.tags{
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags span{
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  padding: 6px 10px;
+  border-radius: 999px;
+
+  color: var(--text-main);
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.05);
+}
+
+@media (prefers-color-scheme: light) {
+  .tags span{
+    border: 1px solid rgba(0,0,0,0.12);
+    background: rgba(0,0,0,0.03);
+  }
+}
+
+/* Mobile modal tuning */
+@media (max-width: 900px){
+  .modal__panel{ margin: 18px auto; }
+  .modal__content{ grid-template-columns: 1fr; }
+  .modal__media img{ min-height: 260px; }
+  .modal__text{ padding: 22px 20px 18px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .modal__panel{ animation: none; transform: none; opacity: 1; }
+}

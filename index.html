@@ -42,7 +42,8 @@
 </head>
 
 <body>
-
+  <div id="top"></div>
+  
   <!-- Splash overlay (plays once, then pixel-perfect flies into the top-left logo + dissolves) -->
   <div id="logo-splash" class="logo-splash" aria-hidden="true">
     <video
@@ -436,12 +437,18 @@
       </div>
     </div>
   </section>
-  
-  <!-- FOOTER -->
-  <footer>
-    <p>© <span id="year"></span> Mountain Muscle · Oakhurst, CA</p>
-  </footer>
 
+  <!-- FOOTER -->
+<footer>
+  <p>
+    © <span id="year"></span> Mountain Muscle · Oakhurst, CA
+  </p>
+
+  <a href="#top" class="back-to-top" aria-label="Back to top">
+    ↑ Back to top
+  </a>
+</footer>
+  
   <!-- Local Business Structured Data -->
   <script type="application/ld+json">
   {

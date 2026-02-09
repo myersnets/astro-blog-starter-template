@@ -405,9 +405,19 @@
     <div class="container">
       <h2>HOURS</h2>
       <p>
-        Monday - Friday 6am-9pm
+        Monday - Friday 6am-9pm</a>
+      </p>
+
+      <div 
+        </p>
         Saturday 9am-4pm
+      </p>
+
+      <div
+        </p>
         Sunday CLOSED
+      </p>
+      </div>
       </p>
     </div>
   </section>
@@ -646,7 +656,31 @@
 
       window.setTimeout(computeAndFly, FAILSAFE_MS);
     })();
+
+    const backToTopBtn = document.getElementById("backToTopBtn");
+
+if (backToTopBtn) {
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+      backToTopBtn.classList.add("is-visible");
+    } else {
+      backToTopBtn.classList.remove("is-visible");
+    }
+  });
+
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
   </script>
 
+<button
+  id="backToTopBtn"
+  class="back-to-top-fab"
+  aria-label="Back to top"
+>
+  ↑
+</button>
+  
 </body>
 </html>

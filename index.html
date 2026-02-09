@@ -169,39 +169,234 @@
     <div class="container">
       <h2>Meet the Team</h2>
 
+      <!-- NOTE: These are now buttons (clickable cards) to open modals -->
       <div class="team-grid">
-        <div class="team-member">
-          <img src="/assets/instructor1.jpg" alt="Kathy Jackson">
+
+        <button
+          class="team-member team-member--clickable"
+          type="button"
+          data-modal="instructor-kathy"
+          aria-haspopup="dialog"
+          aria-controls="instructor-kathy"
+        >
+          <img src="/assets/instructor1.jpg" alt="Kathy Jackson" loading="lazy">
           <h3>Kathy Jackson</h3>
           <p>Silver Sneakers instructor specializing in functional training and mobility.</p>
-        </div>
+        </button>
 
-        <div class="team-member">
-          <img src="/assets/instructor5.jpg" alt="Karina Brown">
+        <button
+          class="team-member team-member--clickable"
+          type="button"
+          data-modal="instructor-karina"
+          aria-haspopup="dialog"
+          aria-controls="instructor-karina"
+        >
+          <img src="/assets/instructor5.jpg" alt="Karina Brown" loading="lazy">
           <h3>Karina Brown</h3>
           <p>General wellness and strength training.</p>
-        </div>
+        </button>
 
-        <div class="team-member">
-          <img src="/assets/instructor2.jpg" alt="Gerri Russell">
+        <button
+          class="team-member team-member--clickable"
+          type="button"
+          data-modal="instructor-gerri"
+          aria-haspopup="dialog"
+          aria-controls="instructor-gerri"
+        >
+          <img src="/assets/instructor2.jpg" alt="Gerri Russell" loading="lazy">
           <h3>Gerri Russell</h3>
           <p>REFIT group fitness instructor with a focus on conditioning and endurance.</p>
-        </div>
+        </button>
 
-        <div class="team-member">
-          <img src="/assets/instructor3.jpg" alt="Lisa Wobler">
+        <button
+          class="team-member team-member--clickable"
+          type="button"
+          data-modal="instructor-lisa"
+          aria-haspopup="dialog"
+          aria-controls="instructor-lisa"
+        >
+          <img src="/assets/instructor3.jpg" alt="Lisa Wobler" loading="lazy">
           <h3>Lisa Wobler</h3>
           <p>General flow yoga instructor.</p>
-        </div>
+        </button>
 
-        <div class="team-member">
-          <img src="/assets/instructor4.jpg" alt="Meloni Mullins">
+        <button
+          class="team-member team-member--clickable"
+          type="button"
+          data-modal="instructor-meloni"
+          aria-haspopup="dialog"
+          aria-controls="instructor-meloni"
+        >
+          <img src="/assets/instructor4.jpg" alt="Meloni Mullins" loading="lazy">
           <h3>Meloni Mullins</h3>
           <p>Silver Sneakers certified instructor — strength circuit, mobility, and conditioning.</p>
-        </div>
+        </button>
+
       </div>
     </div>
   </section>
+
+  <!-- INSTRUCTOR MODALS (single-page “popups”) -->
+  <!-- Replace the *-full.jpg images with your real full-face photos when you have them -->
+  <div class="modal" id="instructor-kathy" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="instructor-kathy-title">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="document">
+      <button class="modal__close" type="button" aria-label="Close" data-close>×</button>
+
+      <div class="modal__content">
+        <div class="modal__media">
+          <img src="/assets/instructor1-full.jpg" alt="Kathy Jackson portrait" loading="lazy">
+        </div>
+        <div class="modal__text">
+          <h3 id="instructor-kathy-title">Kathy Jackson</h3>
+          <p class="muted">Silver Sneakers • Functional Strength • Mobility</p>
+
+          <p>
+            Kathy runs classes that keep you strong for real life — balance, stability, joint-friendly strength,
+            and mobility that actually sticks. Clear cues, supportive coaching, and a steady pace that builds confidence.
+          </p>
+
+          <ul class="bio-bullets">
+            <li><strong>Best for:</strong> beginners, active adults, strength + mobility</li>
+            <li><strong>Expect:</strong> functional movements, safe progressions, good energy</li>
+            <li><strong>Bring:</strong> water — we’ll handle the rest</li>
+          </ul>
+
+          <div class="tags">
+            <span>Silver Sneakers</span><span>Mobility</span><span>Functional</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="instructor-karina" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="instructor-karina-title">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="document">
+      <button class="modal__close" type="button" aria-label="Close" data-close>×</button>
+
+      <div class="modal__content">
+        <div class="modal__media">
+          <img src="/assets/instructor5-full.jpg" alt="Karina Brown portrait" loading="lazy">
+        </div>
+        <div class="modal__text">
+          <h3 id="instructor-karina-title">Karina Brown</h3>
+          <p class="muted">Wellness • Strength • Sustainable Fitness</p>
+
+          <p>
+            Karina’s focus is simple: feel better, move better, get stronger — and keep it doable.
+            Great if you want structure, encouragement, and a plan that meets you where you’re at.
+          </p>
+
+          <ul class="bio-bullets">
+            <li><strong>Best for:</strong> general fitness, consistency, confidence-building</li>
+            <li><strong>Expect:</strong> approachable strength work + movement quality</li>
+            <li><strong>Vibe:</strong> supportive, calm, no-pressure</li>
+          </ul>
+
+          <div class="tags">
+            <span>Wellness</span><span>Strength</span><span>Beginner-Friendly</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="instructor-gerri" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="instructor-gerri-title">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="document">
+      <button class="modal__close" type="button" aria-label="Close" data-close>×</button>
+
+      <div class="modal__content">
+        <div class="modal__media">
+          <img src="/assets/instructor2-full.jpg" alt="Gerri Russell portrait" loading="lazy">
+        </div>
+        <div class="modal__text">
+          <h3 id="instructor-gerri-title">Gerri Russell</h3>
+          <p class="muted">REFIT • Conditioning • Endurance</p>
+
+          <p>
+            Gerri brings high-energy conditioning with a fun edge. It’s sweat, momentum, and rhythm — built to improve
+            endurance and leave you feeling accomplished (and smiling).
+          </p>
+
+          <ul class="bio-bullets">
+            <li><strong>Best for:</strong> cardio + conditioning, group motivation</li>
+            <li><strong>Expect:</strong> upbeat pace, scalable options, lots of movement</li>
+            <li><strong>Tip:</strong> show up early if you want a front spot</li>
+          </ul>
+
+          <div class="tags">
+            <span>REFIT</span><span>Conditioning</span><span>Endurance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="instructor-lisa" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="instructor-lisa-title">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="document">
+      <button class="modal__close" type="button" aria-label="Close" data-close>×</button>
+
+      <div class="modal__content">
+        <div class="modal__media">
+          <img src="/assets/instructor3-full.jpg" alt="Lisa Wobler portrait" loading="lazy">
+        </div>
+        <div class="modal__text">
+          <h3 id="instructor-lisa-title">Lisa Wobler</h3>
+          <p class="muted">Yoga • Flow • Mobility</p>
+
+          <p>
+            Lisa’s flow classes blend breath, mobility, and strength-through-range. Expect a grounding pace,
+            clear transitions, and a class that helps you walk out taller than you walked in.
+          </p>
+
+          <ul class="bio-bullets">
+            <li><strong>Best for:</strong> recovery days, flexibility, stress relief</li>
+            <li><strong>Expect:</strong> flow + mobility with options for all levels</li>
+            <li><strong>Bring:</strong> a mat if you have one (we’ve got backups)</li>
+          </ul>
+
+          <div class="tags">
+            <span>Yoga</span><span>Flow</span><span>Mobility</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="instructor-meloni" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="instructor-meloni-title">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="document">
+      <button class="modal__close" type="button" aria-label="Close" data-close>×</button>
+
+      <div class="modal__content">
+        <div class="modal__media">
+          <img src="/assets/instructor4-full.jpg" alt="Meloni Mullins portrait" loading="lazy">
+        </div>
+        <div class="modal__text">
+          <h3 id="instructor-meloni-title">Meloni Mullins</h3>
+          <p class="muted">Silver Sneakers • Strength Circuit • Mobility</p>
+
+          <p>
+            Meloni’s classes are structured, upbeat, and practical — strength circuits, mobility, and conditioning that
+            help you feel capable in everyday life. You’ll get good coaching and a great pace.
+          </p>
+
+          <ul class="bio-bullets">
+            <li><strong>Best for:</strong> strength + mobility, building consistency</li>
+            <li><strong>Expect:</strong> circuits, safe progressions, coaching that sticks</li>
+            <li><strong>Vibe:</strong> encouraging, energetic, welcoming</li>
+          </ul>
+
+          <div class="tags">
+            <span>Silver Sneakers</span><span>Circuits</span><span>Mobility</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- CLASSES -->
   <section id="classes" class="section dark">
@@ -282,42 +477,117 @@
       });
     }
 
+    // Instructor modals (single-page popups)
+    (function () {
+      const triggers = document.querySelectorAll("[data-modal]");
+      const modals = document.querySelectorAll(".modal");
+      let lastFocusEl = null;
+
+      function openModal(modal) {
+        if (!modal) return;
+        lastFocusEl = document.activeElement;
+
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("no-scroll");
+
+        // Focus close button for accessibility
+        const closeBtn = modal.querySelector("[data-close]");
+        closeBtn && closeBtn.focus();
+
+        // Optional: deep-link without leaving page
+        if (modal.id) history.replaceState(null, "", `#${modal.id}`);
+      }
+
+      function closeModal(modal) {
+        if (!modal) return;
+
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("no-scroll");
+
+        // Remove hash if it points to this modal
+        if (modal.id && location.hash === `#${modal.id}`) {
+          history.replaceState(null, "", location.pathname);
+        }
+
+        // Restore focus
+        if (lastFocusEl && typeof lastFocusEl.focus === "function") {
+          lastFocusEl.focus();
+          lastFocusEl = null;
+        }
+      }
+
+      triggers.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.getAttribute("data-modal");
+          openModal(document.getElementById(id));
+        });
+      });
+
+      modals.forEach((modal) => {
+        modal.addEventListener("click", (e) => {
+          if (e.target.matches("[data-close]")) closeModal(modal);
+        });
+      });
+
+      document.addEventListener("keydown", (e) => {
+        // ESC closes the currently open modal
+        if (e.key === "Escape") {
+          const open = document.querySelector(".modal.is-open");
+          if (open) closeModal(open);
+        }
+      });
+
+      // If someone loads a hash like #instructor-meloni, open it
+      window.addEventListener("load", () => {
+        const id = location.hash.replace("#", "");
+        if (!id) return;
+
+        const modal = document.getElementById(id);
+        if (modal && modal.classList.contains("modal")) {
+          openModal(modal);
+        }
+      });
+    })();
+
     // Logo splash: plays once, then pixel-perfect flies into the real logo and dissolves
     (function () {
       const splash = document.getElementById("logo-splash");
       const video = document.getElementById("logo-splash-video");
       const targetLogo = document.querySelector(".logo");
+
       const pickSplashSrc = () => {
-  const w = window.innerWidth;
-  const h = window.innerHeight;
+        const w = window.innerWidth;
+        const h = window.innerHeight;
 
-  // Portrait (phones)
-  if (h > w) {
-    return "/assets/logo-splash-portrait.mp4";
-  }
+        // Portrait (phones)
+        if (h > w) {
+          return "/assets/logo-splash-portrait.mp4";
+        }
 
-  // Ultra-wide (optional)
-  if (w / h >= 2.1) {
-    return "/assets/logo-splash-ultrawide.mp4";
-  }
+        // Ultra-wide (optional)
+        if (w / h >= 2.1) {
+          return "/assets/logo-splash-ultrawide.mp4";
+        }
 
-  // Default: landscape / desktop
-  return "/assets/logo-splash-landscape.mp4";
-};
+        // Default: landscape / desktop
+        return "/assets/logo-splash-landscape.mp4";
+      };
 
-// Swap video source before play
-const src = pickSplashSrc();
+      // Swap video source before play
+      const src = pickSplashSrc();
 
-video.pause();
-video.innerHTML = "";
+      video.pause();
+      video.innerHTML = "";
 
-const source = document.createElement("source");
-source.src = src;
-source.type = "video/mp4";
-video.appendChild(source);
+      const source = document.createElement("source");
+      source.src = src;
+      source.type = "video/mp4";
+      video.appendChild(source);
 
-video.load();
-      
+      video.load();
+
       if (!splash || !video || !targetLogo) return;
 
       const FAILSAFE_MS = 6000; // MP4 is ~6 seconds

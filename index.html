@@ -36,16 +36,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;600;700&display=swap" rel="stylesheet">  
- 
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;600;700&display=swap" rel="stylesheet">
+
   <!-- Global Styles -->
   <link rel="stylesheet" href="/styles/global.css">
 </head>
 
 <body>
   <div id="top"></div>
-  
-  <!-- Splash overlay (plays once, then pixel-perfect flies into the top-left logo + dissolves) -->
+
+  <!-- Splash overlay (plays once, then flies into the top-left logo + dissolves) -->
   <div id="logo-splash" class="logo-splash" aria-hidden="true">
     <video
       id="logo-splash-video"
@@ -67,6 +67,7 @@
       id="menuButton"
       aria-label="Open menu"
       aria-expanded="false"
+      type="button"
     >
       ☰
     </button>
@@ -156,80 +157,45 @@
     <div class="container">
       <h2>Meet the Team</h2>
 
-      <!-- NOTE: These are now buttons (clickable cards) to open modals -->
       <div class="team-grid">
-
-        <button
-          class="team-member team-member--clickable"
-          type="button"
-          data-modal="instructor-kathy"
-          aria-haspopup="dialog"
-          aria-controls="instructor-kathy"
-        >
+        <button class="team-member team-member--clickable" type="button" data-modal="instructor-kathy" aria-haspopup="dialog" aria-controls="instructor-kathy">
           <img src="/assets/instructor1.jpg" alt="Kathy Jackson" loading="lazy">
           <h3>Kathy Jackson</h3>
           <p>Silver Sneakers instructor specializing in functional training and mobility.</p>
         </button>
 
-        <button
-          class="team-member team-member--clickable"
-          type="button"
-          data-modal="instructor-karina"
-          aria-haspopup="dialog"
-          aria-controls="instructor-karina"
-        >
+        <button class="team-member team-member--clickable" type="button" data-modal="instructor-karina" aria-haspopup="dialog" aria-controls="instructor-karina">
           <img src="/assets/instructor5.jpg" alt="Karina Brown" loading="lazy">
           <h3>Karina Brown</h3>
           <p>General wellness and strength training.</p>
         </button>
 
-        <button
-          class="team-member team-member--clickable"
-          type="button"
-          data-modal="instructor-gerri"
-          aria-haspopup="dialog"
-          aria-controls="instructor-gerri"
-        >
+        <button class="team-member team-member--clickable" type="button" data-modal="instructor-gerri" aria-haspopup="dialog" aria-controls="instructor-gerri">
           <img src="/assets/instructor2.jpg" alt="Gerri Russell" loading="lazy">
           <h3>Gerri Russell</h3>
           <p>REFIT group fitness instructor with a focus on conditioning and endurance.</p>
         </button>
 
-        <button
-          class="team-member team-member--clickable"
-          type="button"
-          data-modal="instructor-lisa"
-          aria-haspopup="dialog"
-          aria-controls="instructor-lisa"
-        >
+        <button class="team-member team-member--clickable" type="button" data-modal="instructor-lisa" aria-haspopup="dialog" aria-controls="instructor-lisa">
           <img src="/assets/instructor3.jpg" alt="Lisa Wobler" loading="lazy">
           <h3>Lisa Wobler</h3>
           <p>General flow yoga instructor.</p>
         </button>
 
-        <button
-          class="team-member team-member--clickable"
-          type="button"
-          data-modal="instructor-meloni"
-          aria-haspopup="dialog"
-          aria-controls="instructor-meloni"
-        >
+        <button class="team-member team-member--clickable" type="button" data-modal="instructor-meloni" aria-haspopup="dialog" aria-controls="instructor-meloni">
           <img src="/assets/instructor4.jpg" alt="Meloni Mullins" loading="lazy">
           <h3>Meloni Mullins</h3>
           <p>Silver Sneakers certified instructor — strength circuit, mobility, and conditioning.</p>
         </button>
-
       </div>
     </div>
   </section>
 
-  <!-- INSTRUCTOR MODALS (single-page “popups”) -->
-  <!-- Replace the *-full.jpg images with your real full-face photos when you have them -->
+  <!-- INSTRUCTOR MODALS -->
   <div class="modal" id="instructor-kathy" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="instructor-kathy-title">
     <div class="modal__backdrop" data-close></div>
     <div class="modal__panel" role="document">
       <button class="modal__close" type="button" aria-label="Close" data-close>×</button>
-
       <div class="modal__content">
         <div class="modal__media">
           <img src="/assets/instructor1-full.jpg" alt="Kathy Jackson portrait" loading="lazy">
@@ -237,18 +203,15 @@
         <div class="modal__text">
           <h3 id="instructor-kathy-title">Kathy Jackson</h3>
           <p class="muted">Silver Sneakers • Functional Strength • Mobility</p>
-
           <p>
             Kathy runs classes that keep you strong for real life — balance, stability, joint-friendly strength,
             and mobility that actually sticks. Clear cues, supportive coaching, and a steady pace that builds confidence.
           </p>
-
           <ul class="bio-bullets">
             <li><strong>Best for:</strong> beginners, active adults, strength + mobility</li>
             <li><strong>Expect:</strong> functional movements, safe progressions, good energy</li>
             <li><strong>Bring:</strong> water — we’ll handle the rest</li>
           </ul>
-
           <div class="tags">
             <span>Silver Sneakers</span><span>Mobility</span><span>Functional</span>
           </div>
@@ -261,7 +224,6 @@
     <div class="modal__backdrop" data-close></div>
     <div class="modal__panel" role="document">
       <button class="modal__close" type="button" aria-label="Close" data-close>×</button>
-
       <div class="modal__content">
         <div class="modal__media">
           <img src="/assets/instructor5-full.jpg" alt="Karina Brown portrait" loading="lazy">
@@ -269,18 +231,15 @@
         <div class="modal__text">
           <h3 id="instructor-karina-title">Karina Brown</h3>
           <p class="muted">Wellness • Strength • Sustainable Fitness</p>
-
           <p>
             Karina’s focus is simple: feel better, move better, get stronger — and keep it doable.
             Great if you want structure, encouragement, and a plan that meets you where you’re at.
           </p>
-
           <ul class="bio-bullets">
             <li><strong>Best for:</strong> general fitness, consistency, confidence-building</li>
             <li><strong>Expect:</strong> approachable strength work + movement quality</li>
             <li><strong>Vibe:</strong> supportive, calm, no-pressure</li>
           </ul>
-
           <div class="tags">
             <span>Wellness</span><span>Strength</span><span>Beginner-Friendly</span>
           </div>
@@ -293,7 +252,6 @@
     <div class="modal__backdrop" data-close></div>
     <div class="modal__panel" role="document">
       <button class="modal__close" type="button" aria-label="Close" data-close>×</button>
-
       <div class="modal__content">
         <div class="modal__media">
           <img src="/assets/instructor2-full.jpg" alt="Gerri Russell portrait" loading="lazy">
@@ -301,18 +259,15 @@
         <div class="modal__text">
           <h3 id="instructor-gerri-title">Gerri Russell</h3>
           <p class="muted">REFIT • Conditioning • Endurance</p>
-
           <p>
             Gerri brings high-energy conditioning with a fun edge. It’s sweat, momentum, and rhythm — built to improve
             endurance and leave you feeling accomplished (and smiling).
           </p>
-
           <ul class="bio-bullets">
             <li><strong>Best for:</strong> cardio + conditioning, group motivation</li>
             <li><strong>Expect:</strong> upbeat pace, scalable options, lots of movement</li>
             <li><strong>Tip:</strong> show up early if you want a front spot</li>
           </ul>
-
           <div class="tags">
             <span>REFIT</span><span>Conditioning</span><span>Endurance</span>
           </div>
@@ -325,7 +280,6 @@
     <div class="modal__backdrop" data-close></div>
     <div class="modal__panel" role="document">
       <button class="modal__close" type="button" aria-label="Close" data-close>×</button>
-
       <div class="modal__content">
         <div class="modal__media">
           <img src="/assets/instructor3-full.jpg" alt="Lisa Wobler portrait" loading="lazy">
@@ -333,18 +287,15 @@
         <div class="modal__text">
           <h3 id="instructor-lisa-title">Lisa Wobler</h3>
           <p class="muted">Yoga • Flow • Mobility</p>
-
           <p>
             Lisa’s flow classes blend breath, mobility, and strength-through-range. Expect a grounding pace,
             clear transitions, and a class that helps you walk out taller than you walked in.
           </p>
-
           <ul class="bio-bullets">
             <li><strong>Best for:</strong> recovery days, flexibility, stress relief</li>
             <li><strong>Expect:</strong> flow + mobility with options for all levels</li>
             <li><strong>Bring:</strong> a mat if you have one (we’ve got backups)</li>
           </ul>
-
           <div class="tags">
             <span>Yoga</span><span>Flow</span><span>Mobility</span>
           </div>
@@ -357,7 +308,6 @@
     <div class="modal__backdrop" data-close></div>
     <div class="modal__panel" role="document">
       <button class="modal__close" type="button" aria-label="Close" data-close>×</button>
-
       <div class="modal__content">
         <div class="modal__media">
           <img src="/assets/instructor4-full.jpg" alt="Meloni Mullins portrait" loading="lazy">
@@ -365,18 +315,15 @@
         <div class="modal__text">
           <h3 id="instructor-meloni-title">Meloni Mullins</h3>
           <p class="muted">Silver Sneakers • Strength Circuit • Mobility</p>
-
           <p>
             Meloni’s classes are structured, upbeat, and practical — strength circuits, mobility, and conditioning that
             help you feel capable in everyday life. You’ll get good coaching and a great pace.
           </p>
-
           <ul class="bio-bullets">
             <li><strong>Best for:</strong> strength + mobility, building consistency</li>
             <li><strong>Expect:</strong> circuits, safe progressions, coaching that sticks</li>
             <li><strong>Vibe:</strong> encouraging, energetic, welcoming</li>
           </ul>
-
           <div class="tags">
             <span>Silver Sneakers</span><span>Circuits</span><span>Mobility</span>
           </div>
@@ -389,38 +336,18 @@
   <section id="classes" class="section">
     <div class="container">
       <h2>Class Schedule</h2>
-
-      <p class="section-intro">
-        Group classes are included with membership. Schedule subject to change.
-      </p>
-
-      <img
-        src="/assets/class-schedule.png"
-        alt="Weekly class schedule"
-        class="schedule-image"
-      />
+      <p class="section-intro">Group classes are included with membership. Schedule subject to change.</p>
+      <img src="/assets/class-schedule.png" alt="Weekly class schedule" class="schedule-image" loading="lazy" />
     </div>
   </section>
 
-  <!-- HOURS -->
+  <!-- HOURS (FIXED MARKUP) -->
   <section id="hours" class="section dark">
     <div class="container">
-      <h2>HOURS</h2>
-      <p>
-        Monday - Friday 6am-9pm</a>
-      </p>
-
-      <div 
-        </p>
-        Saturday 9am-4pm
-      </p>
-
-      <div
-        </p>
-        Sunday CLOSED
-      </p>
-      </div>
-      </p>
+      <h2>Hours</h2>
+      <p>Monday – Friday: 6am – 9pm</p>
+      <p>Saturday: 9am – 4pm</p>
+      <p>Sunday: CLOSED</p>
     </div>
   </section>
 
@@ -428,9 +355,7 @@
   <section class="section" id="contact">
     <div class="container">
       <h2>Contact</h2>
-      <p>
-        Phone: <a href="tel:15596417255">(559) 641-7255</a>
-      </p>
+      <p>Phone: <a href="tel:15596417255">(559) 641-7255</a></p>
 
       <div class="socials">
         <a href="https://www.facebook.com/MountainMuscleOakhurst" target="_blank" rel="noopener">Facebook</a>
@@ -440,16 +365,19 @@
   </section>
 
   <!-- FOOTER -->
-<footer>
-  <p>
-    © <span id="year"></span> Mountain Muscle · Oakhurst, CA
-  </p>
+  <footer>
+    <p>© <span id="year"></span> Mountain Muscle · Oakhurst, CA</p>
 
-  <a href="#top" class="back-to-top" aria-label="Back to top">
-    ↑ Back to top
-  </a>
-</footer>
-  
+    <a href="#top" class="back-to-top" aria-label="Back to top">
+      ↑ Back to top
+    </a>
+  </footer>
+
+  <!-- Floating Back to Top Button (MUST be before scripts that bind it) -->
+  <button id="backToTopBtn" class="back-to-top-fab" aria-label="Back to top" type="button">
+    ↑
+  </button>
+
   <!-- Local Business Structured Data -->
   <script type="application/ld+json">
   {
@@ -476,7 +404,8 @@
   <!-- SCRIPTS -->
   <script>
     // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
     // Dropdown menu logic
     const menuWrap = document.querySelector(".menu-wrap");
@@ -486,7 +415,7 @@
     function closeMenu() {
       if (!menuWrap) return;
       menuWrap.classList.remove("open");
-      menuBtn?.setAttribute("aria-expanded", "false");
+      if (menuBtn) menuBtn.setAttribute("aria-expanded", "false");
     }
 
     if (menuWrap && menuBtn && menuDropdown) {
@@ -496,15 +425,9 @@
         menuBtn.setAttribute("aria-expanded", String(isOpen));
       });
 
-      menuDropdown.querySelectorAll("a").forEach((a) => {
-        a.addEventListener("click", closeMenu);
-      });
-
+      menuDropdown.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
       document.addEventListener("click", closeMenu);
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeMenu();
-      });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
     }
 
     // Instructor modals (single-page popups)
@@ -521,11 +444,9 @@
         modal.setAttribute("aria-hidden", "false");
         document.body.classList.add("no-scroll");
 
-        // Focus close button for accessibility
         const closeBtn = modal.querySelector("[data-close]");
-        closeBtn && closeBtn.focus();
+        if (closeBtn) closeBtn.focus();
 
-        // Optional: deep-link without leaving page
         if (modal.id) history.replaceState(null, "", `#${modal.id}`);
       }
 
@@ -536,12 +457,10 @@
         modal.setAttribute("aria-hidden", "true");
         document.body.classList.remove("no-scroll");
 
-        // Remove hash if it points to this modal
         if (modal.id && location.hash === `#${modal.id}`) {
           history.replaceState(null, "", location.pathname);
         }
 
-        // Restore focus
         if (lastFocusEl && typeof lastFocusEl.focus === "function") {
           lastFocusEl.focus();
           lastFocusEl = null;
@@ -557,71 +476,57 @@
 
       modals.forEach((modal) => {
         modal.addEventListener("click", (e) => {
-          if (e.target.matches("[data-close]")) closeModal(modal);
+          if (e.target && e.target.matches("[data-close]")) closeModal(modal);
         });
       });
 
       document.addEventListener("keydown", (e) => {
-        // ESC closes the currently open modal
         if (e.key === "Escape") {
           const open = document.querySelector(".modal.is-open");
           if (open) closeModal(open);
         }
       });
 
-      // If someone loads a hash like #instructor-meloni, open it
       window.addEventListener("load", () => {
         const id = location.hash.replace("#", "");
         if (!id) return;
-
         const modal = document.getElementById(id);
-        if (modal && modal.classList.contains("modal")) {
-          openModal(modal);
-        }
+        if (modal && modal.classList.contains("modal")) openModal(modal);
       });
     })();
 
-    // Logo splash: plays once, then pixel-perfect flies into the real logo and dissolves
+    // Logo splash: plays once, then flies into the real logo and dissolves
     (function () {
       const splash = document.getElementById("logo-splash");
       const video = document.getElementById("logo-splash-video");
       const targetLogo = document.querySelector(".logo");
 
+      if (!splash || !video || !targetLogo) return;
+
       const pickSplashSrc = () => {
         const w = window.innerWidth;
         const h = window.innerHeight;
-
-        // Portrait (phones)
-        if (h > w) {
-          return "/assets/logo-splash-portrait.mp4";
-        }
-
-        // Ultra-wide (optional)
-        if (w / h >= 2.1) {
-          return "/assets/logo-splash-ultrawide.mp4";
-        }
-
-        // Default: landscape / desktop
+        if (h > w) return "/assets/logo-splash-portrait.mp4";
+        if (w / h >= 2.1) return "/assets/logo-splash-ultrawide.mp4";
         return "/assets/logo-splash-landscape.mp4";
       };
 
-      // Swap video source before play
       const src = pickSplashSrc();
 
-      video.pause();
-      video.innerHTML = "";
+      // Swap video source before play
+      try {
+        video.pause();
+      } catch (e) {}
 
+      video.innerHTML = "";
       const source = document.createElement("source");
       source.src = src;
       source.type = "video/mp4";
       video.appendChild(source);
-
       video.load();
 
-      if (!splash || !video || !targetLogo) return;
-
-      const FAILSAFE_MS = 6000; // MP4 is ~6 seconds
-      const TRANSITION_MAX_MS = 750; // match CSS transform transition
+      const FAILSAFE_MS = 6000; // MP4 ~6 seconds
+      const TRANSITION_MAX_MS = 750; // match CSS
 
       const computeAndFly = () => {
         if (splash.classList.contains("is-fading") || splash.classList.contains("is-hidden")) return;
@@ -637,7 +542,6 @@
         const dx = tCx - vCx;
         const dy = tCy - vCy;
 
-        // Scale splash down to logo size
         const scale = Math.min(t.width / v.width, t.height / v.height);
 
         splash.style.setProperty("--fly-x", `${dx}px`);
@@ -665,30 +569,23 @@
       window.setTimeout(computeAndFly, FAILSAFE_MS);
     })();
 
-    const backToTopBtn = document.getElementById("backToTopBtn");
+    // Floating Back to Top (FIXED: button exists before this runs)
+    (function () {
+      const btn = document.getElementById("backToTopBtn");
+      if (!btn) return;
 
-if (backToTopBtn) {
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 400) {
-      backToTopBtn.classList.add("is-visible");
-    } else {
-      backToTopBtn.classList.remove("is-visible");
-    }
-  });
+      const toggle = () => {
+        if (window.scrollY > 400) btn.classList.add("is-visible");
+        else btn.classList.remove("is-visible");
+      };
 
-  backToTopBtn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-}
+      window.addEventListener("scroll", toggle, { passive: true });
+      toggle();
+
+      btn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
   </script>
-
-<button
-  id="backToTopBtn"
-  class="back-to-top-fab"
-  aria-label="Back to top"
->
-  ↑
-</button>
-  
 </body>
 </html>

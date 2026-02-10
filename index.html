@@ -501,6 +501,59 @@
       Promise.resolve(video.play()).catch(hideSplashNow);
     })();
 
+// About slideshow: builds from /assets/slider/media.json (images + webm)
+(async function () {
+  const track = document.getElementById("sliderTrack");
+  if (!track) return;
+
+  try {
+    const res = await fetch("/assets/slider/media.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("media.json not found");
+    const items = await res.json();
+    if (!Array.isArray(items) || items.length === 0) return;
+
+    const makeSlide = (item, hidden = false) => {
+      const fig = document.createElement("figure");
+      fig.className = "slider__slide";
+      if (hidden) fig.setAttribute("aria-hidden", "true");
+
+      const src = item?.src;
+      if (!src) return fig;
+
+      const isVideo = item.type === "video" || /\.webm$/i.test(src);
+
+      if (isVideo) {
+        const v = document.createElement("video");
+        v.src = src;
+        v.muted = true;
+        v.playsInline = true;
+        v.autoplay = true;
+        v.loop = true;
+        v.preload = "metadata";
+        // iOS likes this attribute explicitly
+        v.setAttribute("playsinline", "");
+        if (item.alt) v.setAttribute("aria-label", item.alt);
+        fig.appendChild(v);
+      } else {
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = item.alt || "";
+        img.loading = "lazy";
+        fig.appendChild(img);
+      }
+
+      return fig;
+    };
+
+    // Render once + duplicate for seamless loop
+    track.innerHTML = "";
+    items.forEach((it) => track.appendChild(makeSlide(it, false)));
+    items.forEach((it) => track.appendChild(makeSlide(it, true)));
+  } catch (e) {
+    console.warn("Slideshow skipped:", e);
+  }
+})();
+    
     // Floating Back to Top
     (function () {
       const btn = document.getElementById("backToTopBtn");

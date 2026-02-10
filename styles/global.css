@@ -841,6 +841,39 @@ body.no-scroll { overflow: hidden; }
   }
 }
 
+.reviews-list{
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.review{
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  border-radius: 14px;
+  padding: 14px 14px;
+}
+
+@media (prefers-color-scheme: light){
+  .review{
+    border: 1px solid rgba(0,0,0,0.12);
+    background: rgba(0,0,0,0.03);
+  }
+}
+
+.review__top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.review__stars{
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+
 /* Mobile modal tuning */
 @media (max-width: 900px){
   .modal__panel{ margin: 18px auto; }

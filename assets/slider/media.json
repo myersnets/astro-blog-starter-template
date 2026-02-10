@@ -1,0 +1,11 @@
+[
+  { "src": "/assets/slider/slide1.jpg", "type": "image", "alt": "Gym interior" },
+  { "src": "/assets/slider/slide2.jpg", "type": "image", "alt": "Free weights area" },
+  { "src": "/assets/slider/clip1.webm", "type": "video", "alt": "Training clip" }
+  { "src": "/assets/slider/slide3.jpg", "type": "image", "alt": "Free weights area" },
+  { "src": "/assets/slider/clip2.webm", "type": "video", "alt": "Training clip" }
+  { "src": "/assets/slider/slide4.jpg", "type": "image", "alt": "Free weights area" },
+  { "src": "/assets/slider/slide5.jpg", "type": "image", "alt": "Free weights area" },
+  { "src": "/assets/slider/slide2.jpg", "type": "image", "alt": "Free weights area" },
+  { "src": "/assets/slider/clip3.webm", "type": "video", "alt": "Training clip" }
+]

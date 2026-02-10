@@ -137,6 +137,16 @@
         <h3>Growing Toward 24/7 Access</h3>
         <p>Building toward secure, round-the-clock availability.</p>
       </div>
+        <button
+        class="cta"
+        type="button"
+        data-modal="reviews-modal"
+        aria-haspopup="dialog"
+        aria-controls="reviews-modal"
+        >
+         See what the community thinks
+       </button>
+      </div>
     </div>
   </section>
 
@@ -502,6 +512,49 @@
       });
     })();
 
+    // Review modals
+    <div class="modal" id="reviews-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="reviews-title">
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__panel" role="document">
+    <button class="modal__close" type="button" aria-label="Close" data-close>×</button>
+
+    <div class="modal__text" style="padding: 28px;">
+      <h3 id="reviews-title">What the community thinks</h3>
+      <p class="muted">Real feedback from Mountain Muscle members.</p>
+
+      <div class="reviews-list">
+        <!-- Replace these with your real reviews -->
+        <article class="review">
+          <div class="review__top">
+            <strong>J.</strong>
+            <span class="review__stars" aria-label="5 out of 5 stars">★★★★★</span>
+          </div>
+          <p>“Old school gym, great people, no nonsense. Exactly what Oakhurst needed.”</p>
+        </article>
+
+        <article class="review">
+          <div class="review__top">
+            <strong>S.</strong>
+            <span class="review__stars" aria-label="5 out of 5 stars">★★★★★</span>
+          </div>
+          <p>“Friendly staff, solid equipment, and a great atmosphere.”</p>
+        </article>
+      </div>
+
+      <div style="margin-top: 16px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a
+          class="cta"
+          href="https://www.google.com/search?q=Mountain+Muscle+Oakhurst+CA+reviews"
+          target="_blank"
+          rel="noopener"
+        >
+          Read all reviews on Google
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+    
     // Logo splash: plays once, then flies into the real logo and dissolves
     (function () {
       const splash = document.getElementById("logo-splash");

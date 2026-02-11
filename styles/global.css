@@ -38,35 +38,35 @@
 /* Auto Light Mode */
 @media (prefers-color-scheme: light) {
   :root {
-    /* Backgrounds: dove gray → alabaster */
-    --bg-main: #f2f2f0;
-    --bg-alt:  #e6e6e3;
-    --bg-soft: #ddddda;
+    /* Backgrounds (slightly darker + more separation) */
+    --bg-main: #e9e9e6; /* was #f2f2f0 */
+    --bg-alt:  #dbdbd7; /* was #e6e6e3 */
+    --bg-soft: #cfcfca; /* was #ddddda */
 
-    /* Text: charcoal (not black) */
-    --text-main: #222222;
-    --text-muted: #4a4a4a;
+    /* Text (more contrast; muted stays readable) */
+    --text-main: #1f1f1f; /* was #222222 */
+    --text-muted: #3a3a3a; /* was #4a4a4a */
 
     /* Accent: slightly deeper for contrast on light */
     --accent: #b78f4e;
 
-    /* Theme-dependent UI surfaces */
-    --hero-overlay: rgba(255,255,255,0.55);
+    /* Theme-dependent UI surfaces (less milky) */
+    --hero-overlay: rgba(255,255,255,0.42); /* was 0.55 */
 
-    --footer-bg: #dededb;
+    --footer-bg: #d6d6d2; /* slightly deeper than #dededb */
 
-    --menu-btn-bg: rgba(255,255,255,0.78);
-    --menu-btn-bg-hover: rgba(255,255,255,0.92);
-    --menu-btn-border: rgba(0,0,0,0.18);
-    --menu-btn-text: #222222;
+    --menu-btn-bg: rgba(255,255,255,0.72); /* was 0.78 */
+    --menu-btn-bg-hover: rgba(255,255,255,0.90); /* was 0.92 */
+    --menu-btn-border: rgba(0,0,0,0.26); /* was 0.18 */
+    --menu-btn-text: #1f1f1f; /* was #222222 */
 
     --menu-dd-bg: rgba(255,255,255,0.96);
-    --menu-dd-border: rgba(0,0,0,0.12);
-    --menu-dd-shadow: rgba(0,0,0,0.18);
-    --menu-dd-link: #222222;
+    --menu-dd-border: rgba(0,0,0,0.18); /* was 0.12 */
+    --menu-dd-shadow: rgba(0,0,0,0.22); /* was 0.18 */
+    --menu-dd-link: #1f1f1f;
     --menu-dd-hover: rgba(183,143,78,0.14);
 
-    --map-border: rgba(0,0,0,0.18);
+    --map-border: rgba(0,0,0,0.24); /* was 0.18 */
   }
 }
 
@@ -178,6 +178,14 @@ section { scroll-margin-top: 90px; }
   /* “floating” feel */
   backdrop-filter: blur(8px);
   box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+}
+
+/* Light-mode FAB override (matches lighter UI) */
+@media (prefers-color-scheme: light) {
+  .back-to-top-fab{
+    background: rgba(255,255,255,0.70);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+  }
 }
 
 .back-to-top-fab.is-visible{
@@ -596,8 +604,8 @@ body.no-scroll { overflow: hidden; }
 
 @media (prefers-color-scheme: light) {
   .team-member--clickable {
-    border: 1px solid rgba(0,0,0,0.12);
-    background: rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.16); /* was 0.12 */
+    background: rgba(0,0,0,0.06);       /* was 0.03 */
   }
 }
 
@@ -844,8 +852,8 @@ body.no-scroll { overflow: hidden; }
 
 @media (prefers-color-scheme: light) {
   .tags span{
-    border: 1px solid rgba(0,0,0,0.12);
-    background: rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.16); /* was 0.12 */
+    background: rgba(0,0,0,0.06);       /* was 0.03 */
   }
 }
 
@@ -864,8 +872,8 @@ body.no-scroll { overflow: hidden; }
 
 @media (prefers-color-scheme: light){
   .review{
-    border: 1px solid rgba(0,0,0,0.12);
-    background: rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.16); /* was 0.12 */
+    background: rgba(0,0,0,0.06);       /* was 0.03 */
   }
 }
 
@@ -916,9 +924,9 @@ body.no-scroll { overflow: hidden; }
 
 @media (prefers-color-scheme: light){
   .slider{
-    border: 1px solid rgba(0,0,0,0.12);
-    background: rgba(0,0,0,0.03);
-    box-shadow: 0 18px 60px rgba(0,0,0,0.12);
+    border: 1px solid rgba(0,0,0,0.16);      /* was 0.12 */
+    background: rgba(0,0,0,0.06);            /* was 0.03 */
+    box-shadow: 0 18px 60px rgba(0,0,0,0.16);/* was 0.12 */
   }
 }
 

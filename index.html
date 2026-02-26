@@ -712,6 +712,151 @@
       }
     })();
 
+<script>
+  // 0=Mon ... 4=Fri
+  const MM_DAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday"];
+  const MM_TIMES = ["8:30am","8:45am","10:00am","4:30pm"];
+
+  // Edit only this list to change details
+  const MM_CLASSES = [
+    { day:0, time:"8:30am", title:"Silver Sneakers Strength Circuit", instructor:"Meloni",
+      tags:["Beginner-friendly","Strength","Silver Sneakers"],
+      desc:"A guided strength circuit focused on balance, functional movement, and overall strength. Great for all levels.",
+      bring:"Water + comfortable shoes.",
+      notes:"Modifications available for knees/shoulders." },
+
+    { day:0, time:"10:00am", title:"Silver Sneakers Strength Circuit", instructor:"Meloni",
+      tags:["Beginner-friendly","Strength","Silver Sneakers"],
+      desc:"Strength circuit focused on functional fitness, balance, and confidence.",
+      bring:"Water + comfortable shoes.",
+      notes:"" },
+
+    { day:1, time:"8:45am", title:"REFIT Fitness", instructor:"Gerri",
+      tags:["Dance","Cardio","All levels"],
+      desc:"A fun cardio format set to uplifting music with easy-to-follow moves and a great sweat.",
+      bring:"Water + towel.",
+      notes:"Low-impact options available." },
+
+    { day:1, time:"10:00am", title:"Silver Sneakers Cardio", instructor:"Kathy",
+      tags:["Cardio","Low-impact","Silver Sneakers"],
+      desc:"Low-impact cardio using simple patterns to build endurance, coordination, and confidence.",
+      bring:"Water.",
+      notes:"Chair options available." },
+
+    { day:2, time:"10:00am", title:"Chair Yoga", instructor:"Kathy",
+      tags:["Mobility","Gentle","Recovery"],
+      desc:"A gentle yoga session using a chair for support—great for mobility, stiffness, and relaxation.",
+      bring:"Water (mat optional).",
+      notes:"" },
+
+    { day:2, time:"4:30pm", title:"Klass", instructor:"Karina",
+      tags:["Strength","Conditioning","Coached"],
+      desc:"A coached group workout with a mix of strength and conditioning.",
+      bring:"Water + athletic shoes.",
+      notes:"Scaling options available—ask the coach." },
+
+    { day:3, time:"8:45am", title:"General Flow Yoga", instructor:"Lisa",
+      tags:["Yoga","Flow","All levels"],
+      desc:"A steady flow with breath and movement to improve flexibility, strength, and calm focus.",
+      bring:"Yoga mat + water.",
+      notes:"Blocks/straps optional." },
+
+    { day:3, time:"10:00am", title:"Silver Sneakers Strength Circuit", instructor:"Meloni",
+      tags:["Beginner-friendly","Strength","Silver Sneakers"],
+      desc:"Strength circuit focused on functional fitness, balance, and confidence.",
+      bring:"Water + comfortable shoes.",
+      notes:"" },
+
+    { day:4, time:"8:45am", title:"REFIT Fitness", instructor:"Gerri",
+      tags:["Dance","Cardio","All levels"],
+      desc:"High-energy cardio with music and simple choreography.",
+      bring:"Water + towel.",
+      notes:"" },
+
+    { day:4, time:"10:00am", title:"Silver Sneakers Cardio", instructor:"Kathy",
+      tags:["Cardio","Low-impact","Silver Sneakers"],
+      desc:"Low-impact cardio designed for endurance and mobility in a supportive group.",
+      bring:"Water.",
+      notes:"" }
+  ];
+
+  const grid = document.getElementById("scheduleGrid");
+  if (grid) {
+    const slotMap = new Map(MM_CLASSES.map(c => [`${c.time}|${c.day}`, c]));
+
+    // Modal refs
+    const overlay = document.getElementById("classModalOverlay");
+    const closeBtn = document.getElementById("classModalClose");
+    const titleEl = document.getElementById("classModalTitle");
+    const metaEl  = document.getElementById("classModalMeta");
+    const tagsEl  = document.getElementById("classModalTags");
+    const descEl  = document.getElementById("classModalDesc");
+    const bringEl = document.getElementById("classModalBring");
+    const notesEl = document.getElementById("classModalNotes");
+
+    function openModal(c){
+      titleEl.textContent = c.title;
+      metaEl.textContent = `${MM_DAYS[c.day]} • ${c.time} • w/ ${c.instructor}`;
+
+      tagsEl.innerHTML = "";
+      (c.tags || []).forEach(t => {
+        const span = document.createElement("span");
+        span.className = "class-tag";
+        span.textContent = t;
+        tagsEl.appendChild(span);
+      });
+
+      descEl.textContent  = c.desc ? c.desc : "";
+      bringEl.textContent = c.bring ? `What to bring: ${c.bring}` : "";
+      notesEl.textContent = c.notes ? `Notes: ${c.notes}` : "";
+
+      overlay.classList.add("open");
+      closeBtn.focus();
+    }
+
+    function closeModal(){
+      overlay.classList.remove("open");
+    }
+
+    closeBtn.addEventListener("click", closeModal);
+    overlay.addEventListener("click", (e) => {
+      if (e.target === overlay) closeModal();
+    });
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+
+    // Build grid (time label + 5 day columns for each time)
+    MM_TIMES.forEach(time => {
+      const timeEl = document.createElement("div");
+      timeEl.className = "schedule-time";
+      timeEl.textContent = time;
+      grid.appendChild(timeEl);
+
+      for (let day = 0; day < 5; day++){
+        const cell = document.createElement("div");
+        cell.className = "schedule-cell";
+
+        const c = slotMap.get(`${time}|${day}`);
+        if (c){
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "class-pill";
+          btn.innerHTML = `${c.title}<small>w/ ${c.instructor}</small>`;
+          btn.addEventListener("click", () => openModal(c));
+          cell.appendChild(btn);
+        } else {
+          const empty = document.createElement("div");
+          empty.className = "schedule-empty";
+          cell.appendChild(empty);
+        }
+
+        grid.appendChild(cell);
+      }
+    });
+  }
+</script>
+  
     // Floating Back to Top
     (function () {
       const btn = document.getElementById("backToTopBtn");

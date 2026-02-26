@@ -1078,7 +1078,7 @@ body.no-scroll{ overflow: hidden; }
 .slider__track{
   display: flex;
   width: max-content;
-  animation: sliderScroll 28s linear infinite;
+  animation: sliderScroll 60s linear infinite;
   will-change: transform;
 }
 

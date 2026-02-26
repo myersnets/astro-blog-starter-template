@@ -39,115 +39,94 @@
 @media (prefers-color-scheme: light) {
   :root {
     /* Backgrounds (slightly darker + more separation) */
-    --bg-main: #e9e9e6; /* was #f2f2f0 */
-    --bg-alt:  #dbdbd7; /* was #e6e6e3 */
-    --bg-soft: #cfcfca; /* was #ddddda */
+    --bg-main: #e9e9e6;
+    --bg-alt:  #dbdbd7;
+    --bg-soft: #cfcfca;
 
-    /* Text (more contrast; muted stays readable) */
-    --text-main: #1f1f1f; /* was #222222 */
-    --text-muted: #3a3a3a; /* was #4a4a4a */
+    /* Text */
+    --text-main: #1f1f1f;
+    --text-muted: #3a3a3a;
 
-    /* Accent: slightly deeper for contrast on light */
+    /* Accent */
     --accent: #b78f4e;
 
-    /* Theme-dependent UI surfaces (less milky) */
-    --hero-overlay: rgba(255,255,255,0.42); /* was 0.55 */
+    /* Theme-dependent UI surfaces */
+    --hero-overlay: rgba(255,255,255,0.42);
 
-    --footer-bg: #d6d6d2; /* slightly deeper than #dededb */
+    --footer-bg: #d6d6d2;
 
-    --menu-btn-bg: rgba(255,255,255,0.72); /* was 0.78 */
-    --menu-btn-bg-hover: rgba(255,255,255,0.90); /* was 0.92 */
-    --menu-btn-border: rgba(0,0,0,0.26); /* was 0.18 */
-    --menu-btn-text: #1f1f1f; /* was #222222 */
+    --menu-btn-bg: rgba(255,255,255,0.72);
+    --menu-btn-bg-hover: rgba(255,255,255,0.90);
+    --menu-btn-border: rgba(0,0,0,0.26);
+    --menu-btn-text: #1f1f1f;
 
     --menu-dd-bg: rgba(255,255,255,0.96);
-    --menu-dd-border: rgba(0,0,0,0.18); /* was 0.12 */
-    --menu-dd-shadow: rgba(0,0,0,0.22); /* was 0.18 */
+    --menu-dd-border: rgba(0,0,0,0.18);
+    --menu-dd-shadow: rgba(0,0,0,0.22);
     --menu-dd-link: #1f1f1f;
     --menu-dd-hover: rgba(183,143,78,0.14);
 
-    --map-border: rgba(0,0,0,0.24); /* was 0.18 */
+    --map-border: rgba(0,0,0,0.24);
   }
 }
 
 /* ==============================
    RESET / BASE
    ============================== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
 
-body {
+body{
   font-family: "Roboto Condensed", sans-serif;
   background: var(--bg-main);
   color: var(--text-main);
   line-height: 1.6;
 }
 
-section { scroll-margin-top: 90px; }
+section{ scroll-margin-top: 90px; }
 
 /* ==============================
    LOGO SPLASH (intro animation)
    ============================== */
-.logo-splash {
+.logo-splash{
   position: fixed;
   inset: 0;
   z-index: 9999;
-
   display: grid;
   place-items: center;
-
   background: var(--bg-main);
-
   opacity: 1;
   transform: translate3d(0,0,0) scale(1);
-
-  transition:
-    opacity 650ms ease,
-    transform 750ms cubic-bezier(0.4, 0, 0.2, 1);
-
+  transition: opacity 650ms ease, transform 750ms cubic-bezier(0.4, 0, 0.2, 1);
   will-change: opacity, transform;
 }
 
-/* Fly + dissolve (JS sets CSS vars for pixel-perfect landing) */
-.logo-splash.is-fading {
+.logo-splash.is-fading{
   opacity: 0;
   pointer-events: none;
-
   transform:
-    translate3d(
-      var(--fly-x, -42vw),
-      var(--fly-y, -38vh),
-      0
-    )
+    translate3d(var(--fly-x, -42vw), var(--fly-y, -38vh), 0)
     scale(var(--fly-scale, 0.35));
 }
 
-.logo-splash.is-hidden { display: none; }
+.logo-splash.is-hidden{ display: none; }
 
-/* Full-screen splash video */
-.logo-splash__video {
+.logo-splash__video{
   display: block;
   width: 100vw;
   height: 100vh;
-
   object-fit: cover;
   object-position: center;
-
   transform: scale(1.02);
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .logo-splash { display: none !important; }
+@media (prefers-reduced-motion: reduce){
+  .logo-splash{ display: none !important; }
 }
 
 /* ==============================
-   Floating Back to Top Button (FIXED)
+   Floating Back to Top Button
    ============================== */
 .back-to-top-fab{
   position: fixed;
@@ -167,21 +146,17 @@ section { scroll-margin-top: 90px; }
   font-weight: 800;
   cursor: pointer;
 
-  /* always transition (not only hover devices) */
   transition: opacity 200ms ease, transform 200ms ease, background 200ms ease, box-shadow 200ms ease, color 200ms ease;
 
-  /* hidden by default; JS adds .is-visible */
   opacity: 0;
   pointer-events: none;
   transform: translateY(10px);
 
-  /* “floating” feel */
   backdrop-filter: blur(8px);
   box-shadow: 0 16px 40px rgba(0,0,0,0.35);
 }
 
-/* Light-mode FAB override (matches lighter UI) */
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light){
   .back-to-top-fab{
     background: rgba(255,255,255,0.70);
     box-shadow: 0 16px 40px rgba(0,0,0,0.18);
@@ -212,22 +187,20 @@ section { scroll-margin-top: 90px; }
 }
 
 @media (prefers-reduced-motion: reduce){
-  .back-to-top-fab{
-    transition: none;
-  }
+  .back-to-top-fab{ transition: none; }
 }
 
 /* ==============================
    NAV / LOGO
    ============================== */
-.nav {
+.nav{
   position: absolute;
   top: 20px;
   left: 20px;
   z-index: 5;
 }
 
-.logo {
+.logo{
   display: block;
   height: 180px;
   width: auto;
@@ -235,13 +208,12 @@ section { scroll-margin-top: 90px; }
   object-fit: contain;
 }
 
-/* Subtle logo lift (desktop only) */
-@media (hover: hover) and (pointer: fine) {
-  .logo {
+@media (hover: hover) and (pointer: fine){
+  .logo{
     transition: transform 200ms ease, filter 200ms ease;
     transform-origin: top left;
   }
-  .logo:hover {
+  .logo:hover{
     transform: translateY(-2px) scale(1.01);
     filter: drop-shadow(0 10px 18px rgba(0,0,0,0.25));
   }
@@ -250,7 +222,7 @@ section { scroll-margin-top: 90px; }
 /* ==============================
    HERO
    ============================== */
-.hero {
+.hero{
   min-height: 90vh;
   background-image: url("/assets/hero.jpg");
   background-size: cover;
@@ -265,13 +237,13 @@ section { scroll-margin-top: 90px; }
   padding: 4rem 1.5rem;
 }
 
-.overlay {
+.overlay{
   position: absolute;
   inset: 0;
   background: var(--hero-overlay);
 }
 
-.hero-content {
+.hero-content{
   position: relative;
   z-index: 2;
   max-width: 900px;
@@ -279,55 +251,203 @@ section { scroll-margin-top: 90px; }
   padding: 20px;
 }
 
-.hero h1 {
+.hero h1{
   position: relative;
-  z-index: 0; /* create stacking context so ::after can sit behind text */
+  z-index: 0;
   font-family: "Oxanium", sans-serif;
   font-weight: 600;
   font-size: clamp(3rem, 6vw, 5rem);
   text-transform: uppercase;
-
-  /* tighter + scalable “smoosh” */
-  letter-spacing: -0.08em; /* was -5px */
+  letter-spacing: -0.08em;
   line-height: 0.92;
-
-  /* hardcore shadow */
   text-shadow:
     1px 1px 0 rgba(0,0,0,0.28),
     -4px -4px 0 rgba(0,0,0,0.16),
     0 18px 45px rgba(0,0,0,0.35);
 }
 
-/* Grain overlay BEHIND the H1 text (FIXED) */
-.hero h1::after {
+.hero h1::after{
   content: "";
   position: absolute;
-  inset: -6px; /* tiny bleed so it doesn't clip */
+  inset: -6px;
   background-image: url("/assets/grain.png");
   background-size: 220px 220px;
   opacity: 0.35;
   pointer-events: none;
-
-  /* Put behind the text */
   z-index: -1;
-
-  /* keeps it “hardcore” without washing text */
   mix-blend-mode: overlay;
 }
 
-.tagline {
+.tagline{
   margin: 20px 0 30px;
   font-size: 1.25rem;
   color: var(--text-muted);
 }
 
 /* ==============================
-   INTERACTIVE CLASS SCHEDULE
-   (respects existing theme vars)
+   CTA
    ============================== */
+.cta{
+  display: inline-block;
+  padding: 14px 36px;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transform: translateZ(0);
+}
 
-.schedule-wrap{
-  margin-top: 18px;
+@media (hover: hover) and (pointer: fine){
+  .cta{
+    transition: transform 180ms ease, background 250ms ease, color 250ms ease, border-color 250ms ease;
+  }
+  .cta:hover{
+    background: var(--accent);
+    color: #1a1a1a;
+    transform: translateY(-1px);
+  }
+  .cta:active{
+    transform: translateY(1px) scale(0.99);
+  }
+}
+
+/* ==============================
+   SECTIONS
+   ============================== */
+.section{
+  padding: 80px 20px;
+  text-align: center;
+  background: var(--bg-main);
+}
+
+.section.dark{ background: var(--bg-alt); }
+
+.container{
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+h2{
+  font-family: "Oswald", sans-serif;
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+p{
+  color: var(--text-muted);
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* ==============================
+   FEATURES
+   ============================== */
+.features{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.feature h3{
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 1px;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+/* ==============================
+   MAP
+   ============================== */
+.map{
+  margin-top: 30px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--map-border);
+  background: var(--bg-soft);
+}
+
+.map iframe{
+  width: 100%;
+  height: 350px;
+  border: 0;
+}
+
+/* ==============================
+   SOCIALS
+   ============================== */
+.socials{ margin-top: 20px; }
+
+.socials a{
+  margin: 0 15px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ==============================
+   TEAM
+   ============================== */
+.team-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto 0;
+}
+
+.team-member img{
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+.team-member h3{ margin-bottom: 0.5rem; }
+
+.team-member p{
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* ==============================
+   CLASS SCHEDULE (intro text)
+   ============================== */
+.section-intro{
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: var(--text-muted);
+}
+
+.schedule-image{
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
+/* ==============================
+   INTERACTIVE CLASS SCHEDULE
+   NOTE: requires HTML wrapper .schedule-scroll
+   ============================== */
+.schedule-wrap{ margin-top: 18px; }
+
+.schedule-scroll{
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Helps sticky paint predictably */
+.schedule-header,
+.schedule-grid{
+  position: relative;
 }
 
 .schedule-header{
@@ -351,6 +471,36 @@ section { scroll-margin-top: 90px; }
   font-size: 18px;
 }
 
+/* Sticky Time column (header + body) */
+.schedule-h-time,
+.schedule-time{
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  background: var(--bg-main);
+  padding-left: 6px;
+  padding-right: 10px;
+}
+
+/* If the schedule section is ever .dark */
+.section.dark .schedule-h-time,
+.section.dark .schedule-time{
+  background: var(--bg-alt);
+}
+
+/* Divider on sticky column */
+.schedule-h-time,
+.schedule-time{
+  box-shadow: 10px 0 0 rgba(0,0,0,0.08);
+}
+
+@media (prefers-color-scheme: light){
+  .schedule-h-time,
+  .schedule-time{
+    box-shadow: 10px 0 0 rgba(0,0,0,0.06);
+  }
+}
+
 .schedule-grid{
   display: grid;
   grid-template-columns: 110px repeat(5, minmax(140px, 1fr));
@@ -367,9 +517,7 @@ section { scroll-margin-top: 90px; }
   white-space: nowrap;
 }
 
-.schedule-cell{
-  min-height: 74px;
-}
+.schedule-cell{ min-height: 74px; }
 
 .class-pill{
   width: 100%;
@@ -386,7 +534,7 @@ section { scroll-margin-top: 90px; }
 }
 
 .class-pill small{
-  display:block;
+  display: block;
   margin-top: 6px;
   font-weight: 900;
   opacity: 0.85;
@@ -398,11 +546,8 @@ section { scroll-margin-top: 90px; }
   border-color: rgba(0,0,0,0.26);
 }
 
-.class-pill:active{
-  transform: translateY(0px);
-}
+.class-pill:active{ transform: translateY(0px); }
 
-/* Empty slots: subtle */
 .schedule-empty{
   height: 100%;
   border: 2px dashed rgba(255,255,255,0.25);
@@ -414,27 +559,24 @@ section { scroll-margin-top: 90px; }
   border-color: rgba(0,0,0,0.15);
 }
 
-/* Mobile: allow horizontal scroll rather than squish */
+/* Mobile: ONE shared horizontal scroll */
 @media (max-width: 860px){
   .schedule-header,
   .schedule-grid{
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    grid-template-columns: 110px repeat(5, 190px);
+    min-width: calc(110px + (5 * 190px) + (6 * 14px));
   }
 
-  .schedule-header{
-    grid-template-columns: 110px repeat(5, 190px);
-  }
-
-  .schedule-grid{
-    grid-template-columns: 110px repeat(5, 190px);
+  /* Sticky above scrolled content */
+  .schedule-h-time,
+  .schedule-time{
+    z-index: 5;
   }
 }
 
 /* ==============================
-   MODAL
+   CLASS SCHEDULE MODAL (new)
    ============================== */
-
 .class-modal-overlay{
   position: fixed;
   inset: 0;
@@ -445,9 +587,7 @@ section { scroll-margin-top: 90px; }
   z-index: 9999;
 }
 
-.class-modal-overlay.open{
-  display: grid;
-}
+.class-modal-overlay.open{ display: grid; }
 
 .class-modal{
   width: min(680px, 100%);
@@ -466,7 +606,7 @@ section { scroll-margin-top: 90px; }
 }
 
 .class-modal-top{
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 14px;
@@ -501,12 +641,10 @@ section { scroll-margin-top: 90px; }
   color: #111;
 }
 
-.class-modal-body{
-  padding: 14px 16px 16px;
-}
+.class-modal-body{ padding: 14px 16px 16px; }
 
 .class-modal-tags{
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin: 4px 0 12px;
@@ -520,169 +658,18 @@ section { scroll-margin-top: 90px; }
   background: rgba(255,255,255,0.10);
 }
 
-.section:not(.dark) .class-tag{
-  background: rgba(0,0,0,0.06);
-}
+.section:not(.dark) .class-tag{ background: rgba(0,0,0,0.06); }
 
 .class-modal-p{
   margin: 0 0 10px;
   line-height: 1.5;
   font-size: 15px;
 }
-/* ==============================
-   CTA
-   ============================== */
-.cta {
-  display: inline-block;
-  padding: 14px 36px;
-  border: 2px solid var(--accent);
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 1px;
-  transform: translateZ(0);
-}
-
-/* CTA: press feel (desktop pointers) */
-@media (hover: hover) and (pointer: fine) {
-  .cta {
-    transition: transform 180ms ease, background 250ms ease, color 250ms ease, border-color 250ms ease;
-  }
-  .cta:hover {
-    background: var(--accent);
-    color: #1a1a1a;
-    transform: translateY(-1px);
-  }
-  .cta:active {
-    transform: translateY(1px) scale(0.99);
-  }
-}
-
-/* ==============================
-   SECTIONS
-   ============================== */
-.section {
-  padding: 80px 20px;
-  text-align: center;
-  background: var(--bg-main);
-}
-
-.section.dark { background: var(--bg-alt); }
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-h2 {
-  font-family: "Oswald", sans-serif;
-  font-size: 2.4rem;
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-p {
-  color: var(--text-muted);
-  max-width: 750px;
-  margin: 0 auto;
-}
-
-/* ==============================
-   FEATURES
-   ============================== */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-}
-
-.feature h3 {
-  font-family: "Oswald", sans-serif;
-  letter-spacing: 1px;
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-
-/* ==============================
-   MAP
-   ============================== */
-.map {
-  margin-top: 30px;
-  border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid var(--map-border);
-  background: var(--bg-soft);
-}
-
-.map iframe {
-  width: 100%;
-  height: 350px;
-  border: 0;
-}
-
-/* ==============================
-   SOCIALS
-   ============================== */
-.socials { margin-top: 20px; }
-
-.socials a {
-  margin: 0 15px;
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-/* ==============================
-   TEAM
-   ============================== */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  max-width: 1000px;
-  margin: 2rem auto 0;
-}
-
-.team-member img {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto 1rem;
-}
-
-.team-member h3 { margin-bottom: 0.5rem; }
-
-.team-member p {
-  font-size: 0.9rem;
-  opacity: 0.85;
-}
-
-/* ==============================
-   CLASS SCHEDULE
-   ============================== */
-.section-intro {
-  max-width: 600px;
-  margin: 0 auto 2rem;
-  color: var(--text-muted);
-}
-
-.schedule-image {
-  width: 100%;
-  max-width: 1200px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  border-radius: 6px;
-}
 
 /* ==============================
    FOOTER
    ============================== */
-footer {
+footer{
   background: var(--footer-bg);
   padding: 20px;
   text-align: center;
@@ -693,14 +680,14 @@ footer {
 /* ==============================
    DROPDOWN MENU
    ============================== */
-.menu-wrap {
+.menu-wrap{
   position: fixed;
   top: 14px;
   right: 14px;
   z-index: 1000;
 }
 
-.menu-button {
+.menu-button{
   border: 2px solid var(--menu-btn-border);
   background: var(--menu-btn-bg);
   color: var(--menu-btn-text);
@@ -711,21 +698,20 @@ footer {
   backdrop-filter: blur(8px);
 }
 
-/* Menu button: tiny lift on hover (desktop pointers) */
-@media (hover: hover) and (pointer: fine) {
-  .menu-button {
+@media (hover: hover) and (pointer: fine){
+  .menu-button{
     transition: transform 180ms ease, background 200ms ease;
   }
-  .menu-button:hover {
+  .menu-button:hover{
     background: var(--menu-btn-bg-hover);
     transform: translateY(-1px);
   }
-  .menu-button:active {
+  .menu-button:active{
     transform: translateY(1px);
   }
 }
 
-.menu-dropdown {
+.menu-dropdown{
   position: absolute;
   top: 52px;
   right: 0;
@@ -738,7 +724,7 @@ footer {
   display: none;
 }
 
-.menu-dropdown a {
+.menu-dropdown a{
   display: block;
   padding: 10px 12px;
   border-radius: 10px;
@@ -747,95 +733,84 @@ footer {
   font-weight: 700;
 }
 
-.menu-dropdown a:hover {
-  background: var(--menu-dd-hover);
-}
+.menu-dropdown a:hover{ background: var(--menu-dd-hover); }
 
-.menu-wrap.open .menu-dropdown { display: block; }
+.menu-wrap.open .menu-dropdown{ display: block; }
 
 /* ==============================
    MOBILE TUNING
    ============================== */
-@media (max-width: 768px) {
-  .nav {
+@media (max-width: 768px){
+  .nav{
     position: static;
     display: flex;
     justify-content: center;
     padding-top: 14px;
   }
 
-  /* Static logo ~2x */
-  .logo {
+  .logo{
     height: 170px;
     max-width: 92vw;
   }
 
-  .hero {
+  .hero{
     min-height: 70vh;
     flex-direction: column;
   }
 
-  .hero-content h1 { display: none; }
+  .hero-content h1{ display: none; }
 
-  .tagline { font-size: 1.1rem; }
+  .tagline{ font-size: 1.1rem; }
 }
 
-@media (max-width: 768px) and (orientation: landscape) {
-  .logo { height: 120px; }
-  .hero { min-height: 100vh; }
+@media (max-width: 768px) and (orientation: landscape){
+  .logo{ height: 120px; }
+  .hero{ min-height: 100vh; }
 }
 
 /* ==============================
    INSTRUCTOR MODALS + CLICKABLE TEAM CARDS
-   Paste at END of global.css
    ============================== */
+body.no-scroll{ overflow: hidden; }
 
-/* Scroll lock when modal is open */
-body.no-scroll { overflow: hidden; }
-
-/* Make the team-member <button> look like your original card */
-.team-member--clickable {
+.team-member--clickable{
   appearance: none;
   -webkit-appearance: none;
   border: 1px solid rgba(255,255,255,0.10);
   background: rgba(255,255,255,0.03);
   border-radius: 14px;
   padding: 20px 16px;
-
   color: inherit;
   font: inherit;
   text-align: center;
-
   cursor: pointer;
   width: 100%;
 }
 
-@media (prefers-color-scheme: light) {
-  .team-member--clickable {
-    border: 1px solid rgba(0,0,0,0.16); /* was 0.12 */
-    background: rgba(0,0,0,0.06);       /* was 0.03 */
+@media (prefers-color-scheme: light){
+  .team-member--clickable{
+    border: 1px solid rgba(0,0,0,0.16);
+    background: rgba(0,0,0,0.06);
   }
 }
 
-/* Subtle hover/active feel */
-@media (hover: hover) and (pointer: fine) {
-  .team-member--clickable {
+@media (hover: hover) and (pointer: fine){
+  .team-member--clickable{
     transition: transform 180ms ease, background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
     will-change: transform;
   }
-  .team-member--clickable:hover {
+  .team-member--clickable:hover{
     transform: translateY(-3px);
     background: rgba(255,255,255,0.05);
     border-color: rgba(197,157,95,0.40);
     box-shadow: 0 18px 40px rgba(0,0,0,0.25);
   }
-  .team-member--clickable:active {
+  .team-member--clickable:active{
     transform: translateY(-1px) scale(0.99);
   }
 }
 
-/* Keep your existing team-member image styles working for buttons */
-.team-member--clickable img {
+.team-member--clickable img{
   width: 180px;
   height: 180px;
   border-radius: 50%;
@@ -845,20 +820,19 @@ body.no-scroll { overflow: hidden; }
   border: 2px solid rgba(197,157,95,0.35);
 }
 
-@media (prefers-color-scheme: light) {
-  .team-member--clickable img {
+@media (prefers-color-scheme: light){
+  .team-member--clickable img{
     border: 2px solid rgba(183,143,78,0.28);
   }
 }
 
-/* Accessible focus (keyboard users) */
-.team-member--clickable:focus-visible {
+.team-member--clickable:focus-visible{
   outline: 3px solid rgba(197,157,95,0.65);
   outline-offset: 4px;
 }
 
 /* ==============================
-   MODAL THEME VARS
+   MODAL THEME VARS (instructor/reviews)
    ============================== */
 :root{
   --modal-backdrop: rgba(0,0,0,0.72);
@@ -869,7 +843,7 @@ body.no-scroll { overflow: hidden; }
   --modal-close-border: rgba(255,255,255,0.14);
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light){
   :root{
     --modal-backdrop: rgba(0,0,0,0.45);
     --modal-panel-bg: rgba(255,255,255,0.92);
@@ -881,19 +855,17 @@ body.no-scroll { overflow: hidden; }
 }
 
 /* ==============================
-   MODAL BASE
+   MODAL BASE (instructor/reviews)
    ============================== */
 .modal{
   position: fixed;
   inset: 0;
   z-index: 9998;
-
-  display: none; /* toggled by .is-open */
+  display: none;
 }
 
 .modal.is-open{ display: block; }
 
-/* Backdrop */
 .modal__backdrop{
   position: absolute;
   inset: 0;
@@ -901,12 +873,10 @@ body.no-scroll { overflow: hidden; }
   backdrop-filter: blur(10px);
 }
 
-/* Panel */
 .modal__panel{
   position: relative;
   width: min(980px, calc(100% - 22px));
   margin: 44px auto;
-
   border-radius: 18px;
   overflow: hidden;
 
@@ -916,7 +886,6 @@ body.no-scroll { overflow: hidden; }
 
   transform: translateY(10px) scale(0.985);
   opacity: 0;
-
   animation: modalIn 220ms ease forwards;
 }
 
@@ -924,29 +893,24 @@ body.no-scroll { overflow: hidden; }
   to { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* Close button */
 .modal__close{
   position: absolute;
   top: 10px;
   right: 12px;
-
   width: 44px;
   height: 44px;
   border-radius: 12px;
-
   border: 1px solid var(--modal-close-border);
   background: var(--modal-close-bg);
   color: var(--text-main);
-
   font-size: 26px;
   line-height: 1;
   cursor: pointer;
-
   display: grid;
   place-items: center;
 }
 
-@media (hover: hover) and (pointer: fine) {
+@media (hover: hover) and (pointer: fine){
   .modal__close{
     transition: transform 160ms ease, background 180ms ease;
   }
@@ -955,9 +919,7 @@ body.no-scroll { overflow: hidden; }
     background: rgba(197,157,95,0.18);
   }
   @media (prefers-color-scheme: light){
-    .modal__close:hover{
-      background: rgba(183,143,78,0.14);
-    }
+    .modal__close:hover{ background: rgba(183,143,78,0.14); }
   }
 }
 
@@ -966,29 +928,15 @@ body.no-scroll { overflow: hidden; }
   outline-offset: 3px;
 }
 
-/* Content layout */
-.modal__content{
-  display: grid;
-  grid-template-columns: 1fr 1.15fr;
-}
+.modal__content{ display: grid; grid-template-columns: 1fr 1.15fr; }
 
-/* Media */
-.modal__media{
-  background: rgba(0,0,0,0.18);
-}
+.modal__media{ background: rgba(0,0,0,0.18); }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light){
   .modal__media{ background: rgba(0,0,0,0.06); }
 }
 
-.modal__media img{
-  width: 100%;
-  height: 100%;
-  min-height: 460px;
-  object-fit: cover;
-  display: block;
-}
-
+.modal__media img,
 .modal__media video{
   width: 100%;
   height: 100%;
@@ -997,7 +945,6 @@ body.no-scroll { overflow: hidden; }
   display: block;
 }
 
-/* Text */
 .modal__text{
   padding: 28px 28px 26px;
   text-align: left;
@@ -1012,7 +959,7 @@ body.no-scroll { overflow: hidden; }
 }
 
 .modal__text p{
-  max-width: none; /* override your global p width constraint */
+  max-width: none;
   margin: 0 0 14px 0;
   color: var(--text-muted);
 }
@@ -1022,22 +969,15 @@ body.no-scroll { overflow: hidden; }
   margin-bottom: 16px;
 }
 
-/* Bullets */
 .bio-bullets{
   margin: 12px 0 0;
   padding-left: 18px;
   color: var(--text-muted);
 }
 
-.bio-bullets li{
-  margin: 8px 0;
-}
+.bio-bullets li{ margin: 8px 0; }
+.bio-bullets strong{ color: var(--text-main); }
 
-.bio-bullets strong{
-  color: var(--text-main);
-}
-
-/* Tags */
 .tags{
   margin-top: 16px;
   display: flex;
@@ -1049,19 +989,17 @@ body.no-scroll { overflow: hidden; }
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.5px;
-
   padding: 6px 10px;
   border-radius: 999px;
-
   color: var(--text-main);
   border: 1px solid rgba(255,255,255,0.14);
   background: rgba(255,255,255,0.05);
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light){
   .tags span{
-    border: 1px solid rgba(0,0,0,0.16); /* was 0.12 */
-    background: rgba(0,0,0,0.06);       /* was 0.03 */
+    border: 1px solid rgba(0,0,0,0.16);
+    background: rgba(0,0,0,0.06);
   }
 }
 
@@ -1080,8 +1018,8 @@ body.no-scroll { overflow: hidden; }
 
 @media (prefers-color-scheme: light){
   .review{
-    border: 1px solid rgba(0,0,0,0.16); /* was 0.12 */
-    background: rgba(0,0,0,0.06);       /* was 0.03 */
+    border: 1px solid rgba(0,0,0,0.16);
+    background: rgba(0,0,0,0.06);
   }
 }
 
@@ -1098,15 +1036,14 @@ body.no-scroll { overflow: hidden; }
   color: var(--accent);
 }
 
-/* Mobile modal tuning */
 @media (max-width: 900px){
   .modal__panel{ margin: 18px auto; }
   .modal__content{ grid-template-columns: 1fr; }
-  .modal__media img{ min-height: 260px; }
+  .modal__media img,
+  .modal__media video{ min-height: 260px; }
   .modal__text{ padding: 22px 20px 18px; }
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce){
   .modal__panel{ animation: none; transform: none; opacity: 1; }
 }
@@ -1132,9 +1069,9 @@ body.no-scroll { overflow: hidden; }
 
 @media (prefers-color-scheme: light){
   .slider{
-    border: 1px solid rgba(0,0,0,0.16);      /* was 0.12 */
-    background: rgba(0,0,0,0.06);            /* was 0.03 */
-    box-shadow: 0 18px 60px rgba(0,0,0,0.16);/* was 0.12 */
+    border: 1px solid rgba(0,0,0,0.16);
+    background: rgba(0,0,0,0.06);
+    box-shadow: 0 18px 60px rgba(0,0,0,0.16);
   }
 }
 
@@ -1145,9 +1082,7 @@ body.no-scroll { overflow: hidden; }
   will-change: transform;
 }
 
-.slider:hover .slider__track{
-  animation-play-state: paused;
-}
+.slider:hover .slider__track{ animation-play-state: paused; }
 
 .slider__slide{
   flex: 0 0 auto;
@@ -1171,8 +1106,4 @@ body.no-scroll { overflow: hidden; }
 
 @media (prefers-reduced-motion: reduce){
   .slider__track{ animation: none; }
-}
-
-@media (max-width: 900px){
-  .modal__media video{ min-height: 260px; }
 }

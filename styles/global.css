@@ -322,6 +322,214 @@ section { scroll-margin-top: 90px; }
 }
 
 /* ==============================
+   INTERACTIVE CLASS SCHEDULE
+   (respects existing theme vars)
+   ============================== */
+
+.schedule-wrap{
+  margin-top: 18px;
+}
+
+.schedule-header{
+  display: grid;
+  grid-template-columns: 110px repeat(5, minmax(140px, 1fr));
+  gap: 14px;
+  align-items: end;
+  padding: 10px 6px 14px;
+  border-bottom: 2px solid rgba(255,255,255,0.22);
+}
+
+.section:not(.dark) .schedule-header{
+  border-bottom: 2px solid rgba(0,0,0,0.14);
+}
+
+.schedule-h-time,
+.schedule-h-day{
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: var(--text-main);
+  font-size: 18px;
+}
+
+.schedule-grid{
+  display: grid;
+  grid-template-columns: 110px repeat(5, minmax(140px, 1fr));
+  gap: 14px;
+  padding: 16px 6px 6px;
+  align-items: start;
+}
+
+.schedule-time{
+  color: var(--text-main);
+  font-weight: 800;
+  font-size: 18px;
+  padding-top: 12px;
+  white-space: nowrap;
+}
+
+.schedule-cell{
+  min-height: 74px;
+}
+
+.class-pill{
+  width: 100%;
+  border: 1px solid rgba(0,0,0,0.18);
+  border-radius: 16px;
+  padding: 12px 12px;
+  cursor: pointer;
+  background: #fff;
+  color: #111;
+  font-weight: 900;
+  text-align: center;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+  transition: transform .08s ease, filter .08s ease, border-color .08s ease;
+}
+
+.class-pill small{
+  display:block;
+  margin-top: 6px;
+  font-weight: 900;
+  opacity: 0.85;
+}
+
+.class-pill:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+  border-color: rgba(0,0,0,0.26);
+}
+
+.class-pill:active{
+  transform: translateY(0px);
+}
+
+/* Empty slots: subtle */
+.schedule-empty{
+  height: 100%;
+  border: 2px dashed rgba(255,255,255,0.25);
+  border-radius: 16px;
+  opacity: 0.7;
+}
+
+.section:not(.dark) .schedule-empty{
+  border-color: rgba(0,0,0,0.15);
+}
+
+/* Mobile: allow horizontal scroll rather than squish */
+@media (max-width: 860px){
+  .schedule-header,
+  .schedule-grid{
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .schedule-header{
+    grid-template-columns: 110px repeat(5, 190px);
+  }
+
+  .schedule-grid{
+    grid-template-columns: 110px repeat(5, 190px);
+  }
+}
+
+/* ==============================
+   MODAL
+   ============================== */
+
+.class-modal-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  place-items: center;
+  padding: 18px;
+  z-index: 9999;
+}
+
+.class-modal-overlay.open{
+  display: grid;
+}
+
+.class-modal{
+  width: min(680px, 100%);
+  background: var(--bg-alt);
+  color: var(--text-main);
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.section:not(.dark) .class-modal{
+  background: #fff;
+  color: #111;
+  border: 1px solid rgba(0,0,0,0.12);
+}
+
+.class-modal-top{
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.section:not(.dark) .class-modal-top{
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.class-modal-title{
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.class-modal-meta{
+  margin-top: 6px;
+  font-weight: 800;
+  opacity: 0.75;
+  font-size: 13px;
+}
+
+.class-modal-close{
+  border: 0;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-weight: 900;
+  background: var(--accent);
+  color: #111;
+}
+
+.class-modal-body{
+  padding: 14px 16px 16px;
+}
+
+.class-modal-tags{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 12px;
+}
+
+.class-tag{
+  font-size: 12px;
+  font-weight: 900;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+}
+
+.section:not(.dark) .class-tag{
+  background: rgba(0,0,0,0.06);
+}
+
+.class-modal-p{
+  margin: 0 0 10px;
+  line-height: 1.5;
+  font-size: 15px;
+}
+/* ==============================
    CTA
    ============================== */
 .cta {

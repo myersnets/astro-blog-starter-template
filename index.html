@@ -405,8 +405,38 @@
     <div class="container">
       <h2>Class Schedule</h2>
       <p class="section-intro">Group classes are included with membership. Schedule subject to change.</p>
-      <img src="/assets/class-schedule.png" alt="Weekly class schedule" class="schedule-image" loading="lazy" />
+      <div class="schedule-wrap">
+  <div class="schedule-header">
+    <div class="schedule-h-time">Time</div>
+    <div class="schedule-h-day">Monday</div>
+    <div class="schedule-h-day">Tuesday</div>
+    <div class="schedule-h-day">Wednesday</div>
+    <div class="schedule-h-day">Thursday</div>
+    <div class="schedule-h-day">Friday</div>
+  </div>
+
+  <div id="scheduleGrid" class="schedule-grid" aria-label="Weekly class schedule"></div>
+</div>
+
+<!-- Modal -->
+<div id="classModalOverlay" class="class-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="classModalTitle">
+  <div class="class-modal" role="document">
+    <div class="class-modal-top">
+      <div>
+        <div id="classModalTitle" class="class-modal-title"></div>
+        <div id="classModalMeta" class="class-modal-meta"></div>
+      </div>
+      <button type="button" id="classModalClose" class="class-modal-close" aria-label="Close">Close</button>
     </div>
+
+    <div class="class-modal-body">
+      <div id="classModalTags" class="class-modal-tags"></div>
+      <p id="classModalDesc" class="class-modal-p"></p>
+      <p id="classModalBring" class="class-modal-p"></p>
+      <p id="classModalNotes" class="class-modal-p"></p>
+    </div>
+    </div>
+   </div>
   </section>
 
   <!-- HOURS -->

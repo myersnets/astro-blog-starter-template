@@ -359,6 +359,22 @@ p{
 }
 
 /* ==============================
+   CONTACT / HOURS GRID
+   ============================== */
+.contact-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  align-items: start;
+}
+
+/* Optional: let text inside these blocks not be centered like global <p> */
+.contact-grid p{
+  max-width: none;
+  margin: 0;
+}
+
+/* ==============================
    MAP
    ============================== */
 .map{

@@ -546,7 +546,11 @@ p{
 
 .schedule-scroll{
   overflow-x: auto;
+  overflow-y: hidden;              /* prevents vertical scroll inside the scroller */
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;             /* tell iOS: this area is for horizontal panning */
+  overscroll-behavior-x: contain;  /* stop scroll chaining at the ends (where supported) */
+  overscroll-behavior-y: none;
 }
 
 /* Helps sticky paint predictably */

@@ -359,6 +359,55 @@ p{
 }
 
 /* ==============================
+   CONTACT / HOURS
+   ============================== */
+.contact-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  align-items: start;
+  margin-top: 22px;
+}
+
+/* Your global p rule centers everything; override inside contact cards */
+#contact .feature p{
+  max-width: none;
+  margin: 0;
+}
+
+/* Fix ugly default blue phone link */
+#contact .contact-link{
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 800;
+}
+#contact .contact-link:hover{ text-decoration: underline; }
+
+/* Social icons layout */
+.socials--icons{
+  margin-top: 26px;
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+.socials--icons .social-link{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.socials--icons .social-link svg{
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.socials--icons .social-link:hover{ text-decoration: underline; }
+/* ==============================
    CONTACT / HOURS GRID
    ============================== */
 .contact-grid{

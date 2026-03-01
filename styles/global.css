@@ -84,6 +84,10 @@ body{
   line-height: 1.6;
 }
 
+html, body{
+  overflow-x: hidden;
+}
+
 section{ scroll-margin-top: 90px; }
 
 /* ==============================
@@ -640,6 +644,10 @@ p{
   text-align: center;
   box-shadow: 0 10px 22px rgba(0,0,0,0.18);
   transition: transform .08s ease, filter .08s ease, border-color .08s ease;
+}
+
+.class-pill{
+  touch-action: manipulation;  /* reduces iOS double-tap zoom behavior on tappable UI */
 }
 
 .class-pill small{

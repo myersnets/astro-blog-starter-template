@@ -359,6 +359,46 @@ p{
 }
 
 /* ==============================
+   PARTNER LOGOS (Features)
+   ============================== */
+.partner-logos{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.partner-logos img{
+  height: 42px;          /* bump this up/down to taste */
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.92;
+}
+
+/* on hover, bring them to life (desktop only) */
+@media (hover: hover) and (pointer: fine){
+  .partner-logos img{
+    transition: filter 180ms ease, opacity 180ms ease, transform 180ms ease;
+  }
+  .partner-logos img:hover{
+    filter: grayscale(0);
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
+/* Light mode: reduce “washed out” look */
+@media (prefers-color-scheme: light){
+  .partner-logos img{
+    opacity: 0.85;
+  }
+}
+
+/* ==============================
    CONTACT / HOURS
    ============================== */
 .contact-grid{

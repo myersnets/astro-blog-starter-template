@@ -423,19 +423,25 @@
     <div class="container">
       <h2>Class Schedule</h2>
       <p class="section-intro">Group classes are included with membership. Schedule subject to change.</p>
-      <div class="schedule-wrap">
-  <div class="schedule-header">
-    <div class="schedule-h-time">Time</div>
-    <div class="schedule-h-day">Monday</div>
-    <div class="schedule-h-day">Tuesday</div>
-    <div class="schedule-h-day">Wednesday</div>
-    <div class="schedule-h-day">Thursday</div>
-    <div class="schedule-h-day">Friday</div>
+    <div class="schedule-wrap">
+  <div class="schedule-scroll">
+
+    <div class="schedule-header">
+      <div class="schedule-h-time">Time</div>
+      <div class="schedule-h-day">Monday</div>
+      <div class="schedule-h-day">Tuesday</div>
+      <div class="schedule-h-day">Wednesday</div>
+      <div class="schedule-h-day">Thursday</div>
+      <div class="schedule-h-day">Friday</div>
+    </div>
+
+    <div id="scheduleGrid"
+         class="schedule-grid"
+         aria-label="Weekly class schedule">
+    </div>
   </div>
-
-  <div id="scheduleGrid" class="schedule-grid" aria-label="Weekly class schedule"></div>
 </div>
-
+      
 <!-- Modal -->
 <div id="classModalOverlay" class="class-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="classModalTitle">
   <div class="class-modal" role="document">

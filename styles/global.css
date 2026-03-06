@@ -419,6 +419,18 @@ p{
   margin: 0;
 }
 
+.contact-phone{
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.contact-phone:hover{
+  text-decoration: underline;
+}
+
 /* Fix ugly default blue phone link */
 #contact .contact-link{
   color: var(--accent);

@@ -291,15 +291,28 @@ section{ scroll-margin-top: 90px; }
 /* ==============================
    CTA
    ============================== */
+
 .cta{
-  display: inline-block;
-  padding: 14px 36px;
-  border: 2px solid var(--accent);
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 1px;
-  transform: translateZ(0);
+  display:inline-block;
+  margin-top:8px;
+  padding:14px 28px;
+
+  font-size:1.35rem;
+  font-weight:800;
+  letter-spacing:0.5px;
+
+  color:#111;
+  background:var(--accent);
+  border:2px solid var(--accent);
+  border-radius:10px;
+
+  text-decoration:none;
+  transition:all .25s ease;
+}
+
+.cta:hover{
+  background:transparent;
+  color:var(--accent);
 }
 
 @media (hover: hover) and (pointer: fine){

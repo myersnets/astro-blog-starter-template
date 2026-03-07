@@ -325,8 +325,10 @@ h2 {
   mix-blend-mode: overlay;
 }
 
-.tagline {
-  margin: 20px 0 30px;
+.tagline{
+  margin: 20px auto 30px;
+  max-width: 750px;
+  text-align: center;
   font-size: 2.5rem;
   color: var(--text-muted);
 }

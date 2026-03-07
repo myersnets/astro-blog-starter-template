@@ -1011,6 +1011,33 @@ body.no-scroll{ overflow: hidden; }
   }
 }
 
+#reviews .container{
+  max-width: 900px;
+}
+
+#reviews .muted{
+  margin-top: 8px;
+}
+
+.review__top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.review p{
+  margin: 0;
+  max-width: none;
+}
+
+.reviews-actions{
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+}
+
 /* ==============================
    MODAL BASE (instructor/reviews)
    ============================== */

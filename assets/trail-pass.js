@@ -40,12 +40,15 @@ claimForm.addEventListener("submit", async (event) => {
     successCard.classList.remove("hidden");
 
     const qrCanvas = document.getElementById("passQr");
-    new QRious({
-      element: qrCanvas,
-      value: data.redeemToken,
-      size: 240,
-    });
 
+const redeemUrl = `${window.location.origin}/staff-redeem.html?token=${encodeURIComponent(data.redeemToken)}`;
+
+new QRious({
+  element: qrCanvas,
+  value: redeemUrl,
+  size: 240,
+});
+    
     claimForm.reset();
   } catch (error) {
     messageEl.textContent = error.message;

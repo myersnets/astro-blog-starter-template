@@ -1,1 +1,61 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redeem Trail Pass | Yosemite Fitness</title>
+  <link rel="stylesheet" href="styles/staff-redeem.css" />
+</head>
+<body>
+  <main class="redeem-page">
+    <section class="redeem-card">
+      <div class="badge">Front Desk Redeem</div>
+
+      <h1>Redeem Trail Pass</h1>
+      <p class="intro">
+        Scan the customer’s pass QR or paste the token manually below.
+      </p>
+
+      <div class="scanner-actions">
+        <button id="startScannerBtn" type="button">Start Camera Scanner</button>
+        <button id="stopScannerBtn" type="button" class="secondary">Stop Scanner</button>
+      </div>
+
+      <div id="scannerWrap" class="scanner-wrap hidden">
+        <video id="preview"></video>
+      </div>
+
+      <div class="divider">or redeem manually</div>
+
+      <form id="manualRedeemForm" class="manual-form">
+        <label for="tokenInput">Redeem token</label>
+        <input
+          type="text"
+          id="tokenInput"
+          name="tokenInput"
+          placeholder="Paste token here"
+          required
+        />
+        <button type="submit">Redeem Pass</button>
+      </form>
+
+      <div id="statusBox" class="status-box hidden">
+        <h2 id="statusTitle">Result</h2>
+        <p id="statusMessage"></p>
+
+        <div id="statusMeta" class="status-meta hidden">
+          <p><strong>Pass code:</strong> <span id="passCode">---</span></p>
+          <p><strong>Name:</strong> <span id="firstName">---</span></p>
+          <p><strong>Spot:</strong> <span id="stickerSpot">---</span></p>
+          <p><strong>Expires:</strong> <span id="expiresAt">---</span></p>
+          <p><strong>Redeemed at:</strong> <span id="redeemedAt">---</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/html5-qrcode"></script>
+  <script src="assets/staff-redeem.js"></script>
+</body>
+</html>

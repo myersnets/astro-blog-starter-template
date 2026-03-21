@@ -19,6 +19,11 @@ let html5QrCode = null;
 let scannerRunning = false;
 let isRedeeming = false;
 
+function focusTokenInput() {
+  tokenInput.focus();
+  tokenInput.select();
+}
+
 function showStatus(type, title, message, meta = null) {
   statusBox.className = `status-box ${type}`;
   statusBox.classList.remove("hidden");
@@ -34,19 +39,28 @@ function showStatus(type, title, message, meta = null) {
     redeemedAtEl.textContent = meta.redeemedAt || "---";
   } else {
     statusMeta.classList.add("hidden");
+    passCodeEl.textContent = "---";
+    firstNameEl.textContent = "---";
+    stickerSpotEl.textContent = "---";
+    expiresAtEl.textContent = "---";
+    redeemedAtEl.textContent = "---";
   }
 }
 
 function extractToken(value) {
+  const trimmed = (value || "").trim();
+
   try {
-    const url = new URL(value);
-    return url.searchParams.get("token") || value;
+    const url = new URL(trimmed);
+    return url.searchParams.get("token") || trimmed;
   } catch {
-    return value;
+    return trimmed;
   }
 }
 
-async function redeemToken(token) {
+async function redeemToken(rawValue) {
+  const token = extractToken(rawValue);
+
   if (!token || isRedeeming) return;
 
   isRedeeming = true;
@@ -98,6 +112,8 @@ async function redeemToken(token) {
     );
   } finally {
     isRedeeming = false;
+    tokenInput.value = "";
+    setTimeout(focusTokenInput, 50);
   }
 }
 
@@ -123,11 +139,9 @@ async function startScanner() {
       qrbox: 220,
     },
     async (decodedText) => {
-      const token = extractToken(decodedText);
-
       await stopScanner();
-      tokenInput.value = token;
-      await redeemToken(token);
+      tokenInput.value = decodedText;
+      await redeemToken(decodedText);
     },
     () => {}
   );
@@ -162,16 +176,23 @@ stopScannerBtn.addEventListener("click", async () => {
 
 manualRedeemForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const token = tokenInput.value.trim();
-  await redeemToken(token);
+  await redeemToken(tokenInput.value);
+});
+
+tokenInput.addEventListener("keydown", async (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    await redeemToken(tokenInput.value);
+  }
 });
 
 window.addEventListener("load", async () => {
+  focusTokenInput();
+
   const params = new URLSearchParams(window.location.search);
   const token = params.get("token");
 
   if (token) {
     tokenInput.value = token;
-    await redeemToken(token);
   }
 });

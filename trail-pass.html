@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trail Pass | Yosemite Fitness</title>
+  <link rel="stylesheet" href="styles/trail-pass.css" />
+</head>
+<body>
+  <main class="trail-pass-page">
+    <section class="trail-pass-card">
+      <div class="badge">Hidden Trail Pass</div>
 
+      <h1>You found a free day pass.</h1>
+      <p class="intro">
+        Scan in the wild, train in town. Claim your free day pass below and
+        show your redemption code at the front desk within 7 days.
+      </p>
+
+      <form id="claimForm" class="claim-form">
+        <input type="hidden" id="stickerSpot" name="stickerSpot" value="" />
+
+        <label for="firstName">First name</label>
+        <input type="text" id="firstName" name="firstName" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <button type="submit">Claim My Pass</button>
+      </form>
+
+      <div id="message" class="message" aria-live="polite"></div>
+
+      <section id="successCard" class="success-card hidden">
+        <h2>Pass claimed</h2>
+        <p>Your free day pass is ready.</p>
+
+        <div class="pass-code-wrap">
+          <span class="label">Your pass code</span>
+          <div id="passCode" class="pass-code">---</div>
+        </div>
+
+        <div class="pass-meta">
+          <p><strong>Expires:</strong> <span id="expiresAt">---</span></p>
+          <p><strong>Sticker:</strong> <span id="spotDisplay">---</span></p>
+        </div>
+
+        <div class="qr-wrap">
+          <canvas id="passQr"></canvas>
+        </div>
+
+        <p class="small-note">
+          Show this screen at the front desk. Staff will scan your pass.
+        </p>
+      </section>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const spot = params.get("spot") || "unknown";
+    document.getElementById("stickerSpot").value = spot;
+    document.getElementById("spotDisplay").textContent = spot;
+  </script>
+  <script src="assets/trail-pass.js"></script>
+</body>
+</html>

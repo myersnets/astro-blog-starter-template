@@ -1,1 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mountain Muscle Leaderboard</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #111;
+      --bg-soft: #1b1b1b;
+      --card: #242424;
+      --gold: #c59d5f;
+      --text: #f4f1ea;
+      --muted: #b8b2a7;
+      --border: rgba(197, 157, 95, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(197,157,95,.18), transparent 35%),
+        linear-gradient(180deg, #111 0%, #181818 100%);
+      color: var(--text);
+      font-family: "Roboto Condensed", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 900px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid var(--border);
+      color: var(--gold);
+      padding: 8px 16px;
+      border-radius: 999px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      margin-bottom: 18px;
+      background: rgba(0,0,0,.25);
+    }
+
+    h1 {
+      font-family: "Oswald", sans-serif;
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      line-height: 0.95;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    h1 span {
+      color: var(--gold);
+      display: block;
+    }
+
+    .subtitle {
+      max-width: 640px;
+      margin: 22px auto 34px;
+      color: var(--muted);
+      font-size: 1.25rem;
+      line-height: 1.45;
+    }
+
+    .leaderboard {
+      background: rgba(36,36,36,.92);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(0,0,0,.45);
+      margin-bottom: 28px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 90px 1fr 1.4fr;
+      gap: 12px;
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      align-items: center;
+      text-align: left;
+    }
+
+    .row.header {
+      background: rgba(197,157,95,.14);
+      color: var(--gold);
+      font-family: "Oswald", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.95rem;
+    }
+
+    .row:last-child {
+      border-bottom: none;
+    }
+
+    .rank {
+      font-family: "Oswald", sans-serif;
+      color: var(--gold);
+      font-size: 1.5rem;
+    }
+
+    .athlete {
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+
+    .achievement {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .fortune-card {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
+      margin-top: 28px;
+    }
+
+    .fortune-label {
+      font-family: "Oswald", sans-serif;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    #fortune {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      line-height: 1.15;
+      margin: 0;
+      font-family: "Oswald", sans-serif;
+    }
+
+    button {
+      margin-top: 22px;
+      background: var(--gold);
+      color: #111;
+      border: none;
+      border-radius: 999px;
+      padding: 13px 24px;
+      font-family: "Oswald", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform .15s ease, filter .15s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 28px;
+    }
+
+    .footer-note strong {
+      color: var(--gold);
+    }
+
+    @media (max-width: 650px) {
+      .row {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 4px;
+      }
+
+      .row.header {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <div class="badge">Live Rankings Updated Whenever You Scan This</div>
+
+    <h1>
+      Mountain Muscle
+      <span>Leaderboard</span>
+    </h1>
+
+    <p class="subtitle">
+      Congratulations. You have accessed the highly classified leaderboard.
+      Rankings are based on grit, consistency, questionable pre-workout choices,
+      and showing up when the couch made a very strong argument.
+    </p>
+
+    <section class="leaderboard">
+      <div class="row header">
+        <div>Rank</div>
+        <div>Athlete</div>
+        <div>Achievement</div>
+      </div>
+
+      <div class="row">
+        <div class="rank">#1</div>
+        <div class="athlete">You</div>
+        <div class="achievement">Showed up today.</div>
+      </div>
+
+      <div class="row">
+        <div class="rank">#2</div>
+        <div class="athlete">Also You</div>
+        <div class="achievement">Came back even though it was hard last time.</div>
+      </div>
+
+      <div class="row">
+        <div class="rank">#3</div>
+        <div class="athlete">Future You</div>
+        <div class="achievement">Already appreciates what you’re doing right now.</div>
+      </div>
+
+      <div class="row">
+        <div class="rank">#4</div>
+        <div class="athlete">Your Legs</div>
+        <div class="achievement">Filed a formal complaint, but survived.</div>
+      </div>
+    </section>
+
+    <section class="fortune-card">
+      <div class="fortune-label">Gym Fortune Cookie</div>
+      <p id="fortune">Loading wisdom from the dumbbell rack...</p>
+      <button onclick="newFortune()">New Fortune</button>
+    </section>
+
+    <p class="footer-note">
+      Nobody walks into a gym because life is already perfect.
+      <br>
+      <strong>You’re here. That counts.</strong>
+    </p>
+  </main>
+
+  <script>
+    const fortunes = [
+      "The barbell remembers every excuse.",
+      "Future soreness detected.",
+      "Your cardio fears you.",
+      "Somewhere, a dumbbell is hoping you pick it up.",
+      "Today’s workout is tomorrow’s proof.",
+      "The squat rack has been asking about you.",
+      "Discipline is just motivation that learned how to show up on time.",
+      "You don’t need to feel ready. You just need to start.",
+      "Leg day builds character. Mostly because stairs become personal.",
+      "Hydrate. Lift. Repeat. Pretend this was the plan all along.",
+      "Nobody else can do your reps for you. Rude, but true.",
+      "You made the leaderboard the second you walked in."
+    ];
+
+    function newFortune() {
+      const fortune = document.getElementById("fortune");
+      const random = fortunes[Math.floor(Math.random() * fortunes.length)];
+      fortune.textContent = random;
+    }
+
+    newFortune();
+  </script>
+</body>
+</html>

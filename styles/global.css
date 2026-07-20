@@ -1442,10 +1442,10 @@ body.no-scroll {
 }
 
 .owner-story__grid {
-  display: grid;
-  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.4fr);
-  align-items: center;
-  gap: clamp(32px, 6vw, 80px);
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 4rem;
+    align-items: center;
 }
 
 .owner-story__media {

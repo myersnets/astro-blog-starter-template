@@ -1654,7 +1654,7 @@ body.no-scroll {
   }
 
   .owner-story__quote::before {
-    color: rgba(197,157,95,.18);
+    color: rgba(197,157,95,.30);
   }
 
 }

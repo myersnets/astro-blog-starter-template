@@ -1633,6 +1633,32 @@ body.no-scroll {
   }
 }
 
+/* =========================================================
+   OWNER STORY LIGHT MODE
+   ========================================================= */
+
+@media (prefers-color-scheme: light) {
+
+  .owner-story h2,
+  .owner-story__signature strong {
+    color: #2b2b2b;
+  }
+
+  .owner-story__quote p {
+    color: #4a4a4a;
+  }
+
+  .owner-story__eyebrow,
+  .owner-story__signature span {
+    color: #c59d5f;
+  }
+
+  .owner-story__quote::before {
+    color: rgba(197,157,95,.18);
+  }
+
+}
+
 /* ==============================
    ABOUT SLIDESHOW (smooth loop)
    ============================== */

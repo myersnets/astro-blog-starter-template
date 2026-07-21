@@ -85,6 +85,18 @@
   }
 }
 
+/* =====================================================
+   CUSTOM FONT
+   ===================================================== */
+
+@font-face {
+    font-family: "MountainLogo";
+    src: url("/assets/fonts/GoodTimesBadTimes.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* ==============================
    RESET / BASE
    ============================== */

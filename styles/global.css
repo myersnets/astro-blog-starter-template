@@ -1,3 +1,15 @@
+/* =====================================================
+   CUSTOM FONT
+   ===================================================== */
+
+@font-face {
+    font-family: "MountainLogo";
+    src: url("/assets/fonts/mountainlogo.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* ==============================
    COLOR SYSTEM (Auto Dark/Light)
    Default: Dark (Millennial Gray)
@@ -83,18 +95,6 @@
     --modal-close-bg: rgba(0, 0, 0, 0.04);
     --modal-close-border: rgba(0, 0, 0, 0.12);
   }
-}
-
-/* =====================================================
-   CUSTOM FONT
-   ===================================================== */
-
-@font-face {
-    font-family: "MountainLogo";
-    src: url("/assets/fonts/mountainlogo.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
 }
 
 /* ==============================

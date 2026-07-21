@@ -973,7 +973,7 @@ footer {
     flex-direction: column;
   }
 
-  .hero-content h1 {
+  .hero-content .hero-title {
     display: none;
   }
 

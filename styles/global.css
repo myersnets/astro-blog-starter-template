@@ -1592,6 +1592,46 @@ body.no-scroll {
   color: #c59d5f;
 }
 
+/* =====================================================
+   MOUNTAIN LOGO TITLE
+   ===================================================== */
+
+.hero-title{
+
+    font-family:"MountainLogo", sans-serif;
+
+    text-transform:uppercase;
+
+    line-height:.9;
+
+    letter-spacing:.03em;
+
+}
+
+.logo-word{
+
+    display:inline-block;
+
+    white-space:nowrap;
+
+}
+
+.logo-word + .logo-word{
+
+    margin-left:.20em;
+
+}
+
+.flip-w{
+
+    display:inline-block;
+
+    transform:rotate(180deg);
+
+    transform-origin:center;
+
+}
+
 /* =========================================================
    OWNER STORY — MOBILE
    ========================================================= */

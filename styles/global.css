@@ -262,9 +262,9 @@ h2 {
 
 .logo {
   display: block;
-  height: 180px;
+  height: 300px;
   width: auto;
-  max-width: 600px;
+  max-width: 1000px;
   object-fit: contain;
 }
 

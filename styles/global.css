@@ -955,6 +955,7 @@ footer {
 /* ==============================
    MOBILE TUNING
    ============================== */
+
 @media (max-width: 768px) {
   .nav {
     position: static;
@@ -964,8 +965,9 @@ footer {
   }
 
   .logo {
-    height: 170px;
-    max-width: 92vw;
+    height: 255px;
+    width: auto;
+    max-width: 98vw;
   }
 
   .hero {
@@ -978,17 +980,30 @@ footer {
   }
 
   .tagline {
-    font-size: 1.1rem;
+    font-size: 2.2rem;
+    line-height: 1.15;
+    max-width: 95vw;
+    margin: 18px auto 24px;
   }
 }
 
 @media (max-width: 768px) and (orientation: landscape) {
   .logo {
-    height: 120px;
+    height: 240px;
+    width: auto;
+    max-width: 95vw;
+  }
+
+  .tagline {
+    font-size: 1.8rem;
+    line-height: 1.1;
+    margin: 12px auto 18px;
   }
 
   .hero {
     min-height: 100vh;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 }
 
